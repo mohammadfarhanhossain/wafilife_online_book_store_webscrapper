@@ -1,3 +1,4 @@
+import os
 import sys
 stdout_reconfigure = getattr(sys.stdout, 'reconfigure', None)
 if callable(stdout_reconfigure):
@@ -9,6 +10,11 @@ import time
 import random
 import logging
 from requests.exceptions import RequestException
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAW_DIR = os.path.join(BASE_DIR, "data", "raw")
+os.makedirs(RAW_DIR, exist_ok=True)
 
 def crawl_all_author_pages(max_pages=3): # Safety limit for testing
     domain = "https://www.wafilife.com"
@@ -86,8 +92,9 @@ def crawl_all_author_pages(max_pages=3): # Safety limit for testing
     print(f"\n--- MISSION ACCOMPLISHED ---")
     print(f"Total Unique Authors Extracted: {len(df)}")
     
-    df.to_csv("Wafilife_All_Authors.csv", index=False, encoding='utf-8-sig')
-    print("Saved all data to Wafilife_All_Authors.csv")
+    output_file = os.path.join(RAW_DIR, "Wafilife_All_Authors.csv")
+    df.to_csv(output_file, index=False, encoding='utf-8-sig')
+    print(f"Saved all data to {os.path.basename(output_file)}")
 
 if __name__ == "__main__":
     # Test with 3 pages first. If it works perfectly, you can increase this number!

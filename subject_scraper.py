@@ -1,3 +1,4 @@
+import os
 import sys
 
 stdout_reconfigure = getattr(sys.stdout, 'reconfigure', None)
@@ -11,6 +12,11 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAW_DIR = os.path.join(BASE_DIR, "data", "raw")
+os.makedirs(RAW_DIR, exist_ok=True)
 
 
 def fetch_page(session, url, headers, max_retries=3, timeout=15):
@@ -103,8 +109,9 @@ def crawl_all_subject_pages(max_pages=200):
     print(f"\n--- MISSION ACCOMPLISHED ---")
     print(f"Total Unique Subjects Extracted: {len(df)}")
 
-    df.to_csv("Wafilife_All_Subjects.csv", index=False, encoding='utf-8-sig')
-    print("Saved to Wafilife_All_Subjects.csv")
+    output_file = os.path.join(RAW_DIR, "Wafilife_All_Subjects.csv")
+    df.to_csv(output_file, index=False, encoding='utf-8-sig')
+    print(f"Saved to {os.path.basename(output_file)}")
 
 
 if __name__ == "__main__":

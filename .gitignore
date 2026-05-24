@@ -1,4 +1,5 @@
 .venv/
+.vscode/
 __pycache__/
 *.pyc
-scraping_progress_*.txt
+data/state/

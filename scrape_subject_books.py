@@ -1,10 +1,10 @@
+import os
 import sys
 
 stdout_reconfigure = getattr(sys.stdout, 'reconfigure', None)
 if callable(stdout_reconfigure):
     stdout_reconfigure(encoding='utf-8')
 
-import os
 import random
 import time
 
@@ -12,6 +12,15 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAW_DIR = os.path.join(BASE_DIR, "data", "raw")
+PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")
+STATE_DIR = os.path.join(BASE_DIR, "data", "state")
+os.makedirs(RAW_DIR, exist_ok=True)
+os.makedirs(PROCESSED_DIR, exist_ok=True)
+os.makedirs(STATE_DIR, exist_ok=True)
 
 
 def fetch_page(session, url, headers, max_retries=3, timeout=15):
@@ -36,15 +45,15 @@ def fetch_page(session, url, headers, max_retries=3, timeout=15):
     return None
 
 
-OUTPUT_FILE = "Wafilife_Subjects_Data.csv"
-PROGRESS_FILE = "scraping_progress_subjects.txt"
+OUTPUT_FILE = os.path.join(PROCESSED_DIR, "Wafilife_Subjects_Data.csv")
+PROGRESS_FILE = os.path.join(STATE_DIR, "scraping_progress_subjects.txt")
 
 
 def load_existing_data():
     if os.path.exists(OUTPUT_FILE):
         try:
             df = pd.read_csv(OUTPUT_FILE)
-            print(f"Loaded {len(df)} previously scraped records from {OUTPUT_FILE}")
+            print(f"Loaded {len(df)} previously scraped records from {os.path.basename(OUTPUT_FILE)}")
             return df
         except Exception as e:
             print(f"Error loading existing data: {e}")
@@ -73,7 +82,7 @@ def save_progress(subject_name):
 def save_data_incrementally(df):
     try:
         df.to_csv(OUTPUT_FILE, index=False, encoding='utf-8')
-        print(f"✓ Saved {len(df)} total records to {OUTPUT_FILE}")
+        print(f"✓ Saved {len(df)} total records to {os.path.basename(OUTPUT_FILE)}")
     except Exception as e:
         print(f"Error saving data: {e}")
 
@@ -100,7 +109,7 @@ def extract_book_title(book):
 
 def scrape_wafilife_subjects_data():
     try:
-        subjects_df = pd.read_csv("Wafilife_All_Subjects.csv")
+        subjects_df = pd.read_csv(os.path.join(RAW_DIR, "Wafilife_All_Subjects.csv"))
     except FileNotFoundError:
         print("Error: Wafilife_All_Subjects.csv not found! Run the Subject Tier 1 crawler first.")
         return
@@ -198,7 +207,7 @@ def scrape_wafilife_subjects_data():
 
     if all_books:
         df = pd.DataFrame(all_books)
-        df.to_excel("Wafilife_Subjects_Data.xlsx", index=False, engine='openpyxl')
+        df.to_excel(os.path.join(PROCESSED_DIR, "Wafilife_Subjects_Data.xlsx"), index=False, engine='openpyxl')
         print(f"\nSUCCESS! Extracted a total of {len(df)} books to both CSV and Excel formats")
     else:
         print("\nFAILED: No books were extracted. Check your internet connection.")

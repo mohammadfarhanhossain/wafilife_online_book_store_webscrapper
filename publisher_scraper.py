@@ -1,9 +1,15 @@
+import os
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAW_DIR = os.path.join(BASE_DIR, "data", "raw")
+os.makedirs(RAW_DIR, exist_ok=True)
 
 def crawl_all_publisher_pages(max_pages=200): # High limit for the actual run
     domain = "https://www.wafilife.com"
@@ -56,8 +62,9 @@ def crawl_all_publisher_pages(max_pages=200): # High limit for the actual run
     print(f"\n--- MISSION ACCOMPLISHED ---")
     print(f"Total Unique Publishers Extracted: {len(df)}")
     
-    df.to_csv("Wafilife_All_Publishers.csv", index=False, encoding='utf-8-sig')
-    print("Saved to Wafilife_All_Publishers.csv")
+    output_file = os.path.join(RAW_DIR, "Wafilife_All_Publishers.csv")
+    df.to_csv(output_file, index=False, encoding='utf-8-sig')
+    print(f"Saved to {os.path.basename(output_file)}")
 
 if __name__ == "__main__":
     crawl_all_publisher_pages(max_pages=200)

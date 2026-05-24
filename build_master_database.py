@@ -5,11 +5,14 @@ import pandas as pd
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-AUTHOR_FILE = os.path.join(BASE_DIR, "Wafilife_Authors_Data.csv")
-PUBLISHER_FILE = os.path.join(BASE_DIR, "Wafilife_Publishers_Data.csv")
-SUBJECT_FILE = os.path.join(BASE_DIR, "Wafilife_Subjects_Data.csv")
-OUTPUT_CSV = os.path.join(BASE_DIR, "Wafilife_Master_Database.csv")
-OUTPUT_XLSX = os.path.join(BASE_DIR, "Wafilife_Master_Database.xlsx")
+PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")
+os.makedirs(PROCESSED_DIR, exist_ok=True)
+
+AUTHOR_FILE = os.path.join(PROCESSED_DIR, "Wafilife_Authors_Data.csv")
+PUBLISHER_FILE = os.path.join(PROCESSED_DIR, "Wafilife_Publishers_Data.csv")
+SUBJECT_FILE = os.path.join(PROCESSED_DIR, "Wafilife_Subjects_Data.csv")
+OUTPUT_CSV = os.path.join(PROCESSED_DIR, "Wafilife_Master_Database.csv")
+OUTPUT_XLSX = os.path.join(PROCESSED_DIR, "Wafilife_Master_Database.xlsx")
 
 
 def read_csv_safe(path):
