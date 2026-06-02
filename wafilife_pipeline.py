@@ -6,6 +6,7 @@ import shutil
 import sys
 import time
 from pathlib import Path
+import json
 
 import numpy as np
 import pandas as pd
@@ -42,6 +43,25 @@ HEADERS = {
 DOMAIN = "https://www.wafilife.com"
 BN_DIGITS = {chr(0x09E6 + i): str(i) for i in range(10)}
 INVALID_TEXTS = {"", "nan", "none", "not listed", "not listed on grid"}
+BLOCK_INDICATORS = [
+    "captcha",
+    "are you human",
+    "access denied",
+    "too many requests",
+    "please enable javascript",
+    "unusual traffic",
+    "verify you are human",
+]
+
+
+def is_blocked_page(text: str) -> bool:
+    if not text:
+        return False
+    lower = text.lower()
+    for phrase in BLOCK_INDICATORS:
+        if phrase in lower:
+            return True
+    return False
 
 ENTITY_CONFIGS = {
     "author": {
@@ -224,11 +244,29 @@ def normalize_entity_list(entity_type, df, persist=False):
 def read_progress(path):
     if not path.exists():
         return None
-    return path.read_text(encoding="utf-8").strip() or None
+    try:
+        text = path.read_text(encoding="utf-8").strip()
+        if not text:
+            return None
+        # expect JSON {"entity": "name", "next_page": N}
+        obj = json.loads(text)
+        return obj
+    except Exception:
+        # fallback: older format (plain entity name)
+        text = path.read_text(encoding="utf-8").strip()
+        if not text:
+            return None
+        return {"entity": text, "next_page": None}
 
 
 def write_progress(path, value):
-    path.write_text(str(value), encoding="utf-8")
+    # value expected as dict like {"entity": name, "next_page": n_or_null}
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("", encoding="utf-8")
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(value, fh, ensure_ascii=False)
+    os.replace(str(tmp), str(path))
 
 
 def load_existing_processed(path):
@@ -282,28 +320,62 @@ def scrape_entity_books(entity_type):
     entity_df = normalize_entity_list(entity_type, pd.read_csv(raw_file, low_memory=False), persist=True)
     existing_df = load_existing_processed(config["processed_file"])
     all_rows = existing_df.to_dict("records") if not existing_df.empty else []
-    last_done = read_progress(config["progress_file"])
+    progress = read_progress(config["progress_file"])
 
-    start_index = 0
-    if last_done:
-        matches = entity_df.index[entity_df[config["raw_name_col"]] == last_done].tolist()
-        if matches:
-            start_index = matches[0] + 1
+    # determine resume position and page
+    resume_index = None
+    resume_page = None
+    if progress:
+        # progress may be legacy string or JSON dict
+        if isinstance(progress, dict):
+            prog_entity = progress.get("entity")
+            prog_next = progress.get("next_page")
+        else:
+            prog_entity = progress
+            prog_next = None
+
+        if prog_entity:
+            matches = entity_df.index[entity_df[config["raw_name_col"]] == prog_entity].tolist()
+            if matches:
+                idx = matches[0]
+                if prog_next:
+                    resume_index = idx
+                    resume_page = int(prog_next)
+                else:
+                    # entity marked finished; start after it
+                    resume_index = idx + 1
 
     session = requests.Session()
     domain = DOMAIN
-    for position, row in entity_df.iloc[start_index:].iterrows():
+    for position, row in entity_df.iterrows():
+        if resume_index is not None and position < resume_index:
+            continue
         entity_name = row[config["raw_name_col"]]
         base_url = str(row["Profile_Link"]).rstrip("/")
         total_for_entity = 0
-        page = 1
+        # if resuming inside this entity, start from that page
+        if resume_index is not None and position == resume_index and resume_page:
+            page = resume_page
+            # clear resume_page after using it
+            resume_page = None
+        else:
+            page = 1
 
         print(f"[BOOKS] {entity_type}: {entity_name} ({int(position) + 1}/{len(entity_df)})")
         while True:
             url = book_page_url(entity_type, base_url, page)
             response = fetch_page(session, url)
             if response is None:
-                break
+                # failed to fetch; save current page for retry next run
+                write_progress(config["progress_file"], {"entity": entity_name, "next_page": page})
+                print(f"[BOOKS] fetch failed, saved progress for {entity_name} page {page}")
+                return
+
+            # detect possible blocking/interstitial pages
+            if is_blocked_page(response.text):
+                write_progress(config["progress_file"], {"entity": entity_name, "next_page": page})
+                print(f"[BOOKS] Block detected for {entity_name} at page {page}; stopping to preserve progress")
+                return
 
             soup = BeautifulSoup(response.text, "html.parser")
             articles = soup.find_all("article")
@@ -350,6 +422,9 @@ def scrape_entity_books(entity_type):
 
             if found == 0:
                 break
+
+            # save progress: next page to attempt
+            write_progress(config["progress_file"], {"entity": entity_name, "next_page": page + 1})
             page += 1
             time.sleep(random.uniform(0.1, 0.3))
 
@@ -358,7 +433,8 @@ def scrape_entity_books(entity_type):
         tmp_processed = processed_path.with_suffix(processed_path.suffix + ".tmp")
         pd.DataFrame(all_rows).to_csv(tmp_processed, index=False, encoding="utf-8-sig")
         os.replace(str(tmp_processed), str(processed_path))
-        write_progress(config["progress_file"], entity_name)
+        # mark entity finished (no next_page)
+        write_progress(config["progress_file"], {"entity": entity_name, "next_page": None})
         print(f" -> scraped {total_for_entity}; saved total {len(all_rows)}")
 
 
