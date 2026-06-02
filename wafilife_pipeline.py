@@ -1,5 +1,4 @@
 import argparse
-import logging
 import os
 import random
 import re
@@ -7,7 +6,6 @@ import shutil
 import sys
 import time
 from pathlib import Path
-from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -31,33 +29,6 @@ LOG_DIR = PROJECT_DIR / "data" / "logs"
 for directory in [RAW_DIR, PROCESSED_DIR, STATE_DIR, LOG_DIR]:
     directory.mkdir(parents=True, exist_ok=True)
 
-# --- Logging Configuration ---
-log_formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
-log_file = LOG_DIR / "wafilife_scrape.log"
-err_file = LOG_DIR / "wafilife_scrape.err.log"
-
-# Main File Handler (INFO and above)
-file_handler = logging.FileHandler(log_file, encoding="utf-8")
-file_handler.setFormatter(log_formatter)
-file_handler.setLevel(logging.INFO)
-
-# Error File Handler (ERROR and above)
-error_handler = logging.FileHandler(err_file, encoding="utf-8")
-error_handler.setFormatter(log_formatter)
-error_handler.setLevel(logging.ERROR)
-
-# Console Handler
-console_handler = logging.StreamHandler(sys.stdout)
-console_handler.setFormatter(log_formatter)
-console_handler.setLevel(logging.INFO)
-
-# Configure Root Logger
-logging.basicConfig(
-    level=logging.INFO,
-    handlers=[file_handler, error_handler, console_handler]
-)
-logger = logging.getLogger(__name__)
-
 
 DB_USER = os.getenv("WAFILIFE_DB_USER", "root")
 DB_PASS = os.getenv("WAFILIFE_DB_PASS", "farhan")
@@ -68,6 +39,7 @@ DB_NAME = os.getenv("WAFILIFE_DB_NAME", "wafilife_db")
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
 }
+DOMAIN = "https://www.wafilife.com"
 BN_DIGITS = {chr(0x09E6 + i): str(i) for i in range(10)}
 INVALID_TEXTS = {"", "nan", "none", "not listed", "not listed on grid"}
 
@@ -158,11 +130,11 @@ def fetch_page(session, url, max_retries=3, timeout=15):
         except RequestException as exc:
             last_error = str(exc)
 
-        logger.warning(f"Request failed for {url} ({attempt}/{max_retries}): {last_error}")
+        print(f"Request failed for {url} ({attempt}/{max_retries}): {last_error}")
         if attempt < max_retries:
             time.sleep(random.uniform(1.0, 2.5))
 
-    logger.error(f"Skipping {url} after retries: {last_error}")
+    print(f"Skipping {url} after retries: {last_error}")
     return None
 
 
@@ -179,16 +151,17 @@ def scrape_entity_list(entity_type, force=False):
     output_file = config["raw_file"]
 
     if output_file.exists() and not force:
-        logger.info(f"[SKIP] {output_file.name} already exists. Use --force-list to refresh.")
+        print(f"[SKIP] {output_file.name} already exists. Use --force-list to refresh.")
         return normalize_entity_list(entity_type, pd.read_csv(output_file, low_memory=False), persist=True)
 
     session = requests.Session()
     rows = []
-    domain = "https://www.wafilife.com"
+    # use global DOMAIN constant
+    domain = DOMAIN
 
     for page in range(1, config["max_pages"] + 1):
         current_url = config["list_url"] if page == 1 else f"{config['list_url']}?page={page}"
-        logger.info(f"[LIST] Scraping {entity_type} list page {page}: {current_url}")
+        print(f"[LIST] {entity_type} page {page}: {current_url}")
         response = fetch_page(session, current_url)
         if response is None:
             break
@@ -208,14 +181,17 @@ def scrape_entity_list(entity_type, force=False):
                 rows.append({config["raw_name_col"]: name, "Profile_Link": profile_link})
                 found += 1
 
-        logger.info(f"[LIST] {entity_type} list page {page} found {found} profiles")
+        print(f" -> found {found}")
         if found == 0:
             break
         time.sleep(random.uniform(0.5, 1.8))
 
     df = normalize_entity_list(entity_type, pd.DataFrame(rows))
-    df.to_csv(output_file, index=False, encoding="utf-8-sig")
-    logger.info(f"[OK] Saved {len(df)} {entity_type} rows to {output_file}")
+    # atomic write: write to temp then replace
+    tmp_out = output_file.with_suffix(output_file.suffix + ".tmp")
+    df.to_csv(tmp_out, index=False, encoding="utf-8-sig")
+    os.replace(str(tmp_out), str(output_file))
+    print(f"[OK] Saved {len(df)} {entity_type} rows to {output_file}")
     return df
 
 
@@ -315,16 +291,16 @@ def scrape_entity_books(entity_type):
             start_index = matches[0] + 1
 
     session = requests.Session()
-    for idx, (position, row) in enumerate(entity_df.iloc[start_index:].iterrows(), start=start_index + 1):
+    domain = DOMAIN
+    for position, row in entity_df.iloc[start_index:].iterrows():
         entity_name = row[config["raw_name_col"]]
         base_url = str(row["Profile_Link"]).rstrip("/")
         total_for_entity = 0
         page = 1
 
-        print(f"[BOOKS] Scraping {entity_type}: {entity_name} ({idx}/{len(entity_df)})")
+        print(f"[BOOKS] {entity_type}: {entity_name} ({int(position) + 1}/{len(entity_df)})")
         while True:
             url = book_page_url(entity_type, base_url, page)
-            print(f"[BOOKS] {entity_type}={entity_name} | page={page} | url={url}")
             response = fetch_page(session, url)
             if response is None:
                 break
@@ -341,13 +317,22 @@ def scrape_entity_books(entity_type):
                     continue
                 main_price, wafilife_price = extract_prices(article)
 
-                data: dict[str, Any] = {
+                # try to capture a book URL for the article (first anchor with href)
+                book_url = None
+                link_tag = article.find("a", href=True)
+                if link_tag:
+                    href = str(link_tag["href"]).strip()
+                    if href:
+                        book_url = f"{domain}{href}" if not href.startswith("http") else href
+
+                data = {
                     "Author": "Not Listed on Grid",
                     "Publisher": "Not Listed on Grid",
                     "Subject": "Not Listed on Grid",
                     "Title": title,
                     "Main_Price": main_price,
                     "Wafilife_Price": wafilife_price,
+                    "book_url": book_url,
                 }
                 if entity_type == "author":
                     data["Author"] = entity_name
@@ -363,15 +348,18 @@ def scrape_entity_books(entity_type):
                 found += 1
                 total_for_entity += 1
 
-            print(f"[BOOKS] {entity_type}={entity_name} | page={page} | books_found={found}")
             if found == 0:
                 break
             page += 1
             time.sleep(random.uniform(0.1, 0.3))
 
-        pd.DataFrame(all_rows).to_csv(config["processed_file"], index=False, encoding="utf-8-sig")
+        # atomic write: write processed rows to a temp file then replace
+        processed_path = config["processed_file"]
+        tmp_processed = processed_path.with_suffix(processed_path.suffix + ".tmp")
+        pd.DataFrame(all_rows).to_csv(tmp_processed, index=False, encoding="utf-8-sig")
+        os.replace(str(tmp_processed), str(processed_path))
         write_progress(config["progress_file"], entity_name)
-        print(f"[BOOKS] Finished {entity_type}={entity_name} | scraped={total_for_entity} | saved_total={len(all_rows)}")
+        print(f" -> scraped {total_for_entity}; saved total {len(all_rows)}")
 
 
 def make_entity_table(entity_type, final_df):
