@@ -1,0 +1,1322 @@
+[SCRAPE] Building raw author/publisher/subject lists...
+[SKIP] Wafilife_All_Authors.csv already exists. Use --force-list to refresh.
+[SKIP] Wafilife_All_Publishers.csv already exists. Use --force-list to refresh.
+[SKIP] Wafilife_All_Subjects.csv already exists. Use --force-list to refresh.
+[SCRAPE] Scraping books under each entity...
+[BOOKS] author: Md. Iqbal Hossain Rony (87/18175)
+ -> scraped 1; saved total 33057
+[BOOKS] author: Md. Jamal Hossain (88/18175)
+ -> scraped 4; saved total 33061
+[BOOKS] author: Md. Jamal Uddin Jamy (89/18175)
+ -> scraped 3; saved total 33064
+[BOOKS] author: Md. Kamruzzaman (90/18175)
+ -> scraped 1; saved total 33065
+[BOOKS] author: Md. Khalilur Rahman (91/18175)
+ -> scraped 2; saved total 33067
+[BOOKS] author: Md. Liton Ali (92/18175)
+ -> scraped 1; saved total 33068
+[BOOKS] author: Md. Majharul Islam (93/18175)
+ -> scraped 1; saved total 33069
+[BOOKS] author: Md. Maksudul Haque Khan (94/18175)
+ -> scraped 1; saved total 33070
+[BOOKS] author: Md. Masud Rana (95/18175)
+ -> scraped 1; saved total 33071
+[BOOKS] author: Md. Matiul Islam (96/18175)
+ -> scraped 1; saved total 33072
+[BOOKS] author: Md. Mofijur Rahman (97/18175)
+ -> scraped 1; saved total 33073
+[BOOKS] author: Md. Mofizur Rahman Mahfuz (98/18175)
+ -> scraped 1; saved total 33074
+[BOOKS] author: Md. Mohidur Rahman (M.A) (99/18175)
+ -> scraped 1; saved total 33075
+[BOOKS] author: Md. Mokhlesur Rahman (100/18175)
+ -> scraped 1; saved total 33076
+[BOOKS] author: Md. Monir Hossain (101/18175)
+ -> scraped 1; saved total 33077
+[BOOKS] author: Md. Mosharraf Hossain (102/18175)
+ -> scraped 3; saved total 33080
+[BOOKS] author: Md. Mostafizur Rahman (103/18175)
+ -> scraped 2; saved total 33082
+[BOOKS] author: Md. Mujibur Rahman (BAU) (104/18175)
+ -> scraped 1; saved total 33083
+[BOOKS] author: Md. Muklesuzzaman Khan (105/18175)
+ -> scraped 3; saved total 33086
+[BOOKS] author: Md. Najmul Hasan (106/18175)
+ -> scraped 1; saved total 33087
+[BOOKS] author: Md. Neyamul Islam (107/18175)
+ -> scraped 1; saved total 33088
+[BOOKS] author: Md. Nurul Islam (108/18175)
+ -> scraped 4; saved total 33092
+[BOOKS] author: Md. Rafiul Islam (109/18175)
+ -> scraped 1; saved total 33093
+[BOOKS] author: Md. Rajibul Islam (110/18175)
+ -> scraped 1; saved total 33094
+[BOOKS] author: Md. Rezaul Karim (111/18175)
+ -> scraped 1; saved total 33095
+[BOOKS] author: Md. Rofiuddin (112/18175)
+ -> scraped 1; saved total 33096
+[BOOKS] author: Md. Saadat Hossain (113/18175)
+ -> scraped 1; saved total 33097
+[BOOKS] author: Md. Safiur Rahman (114/18175)
+ -> scraped 2; saved total 33099
+[BOOKS] author: Md. Sahidullha Babul (115/18175)
+ -> scraped 1; saved total 33100
+[BOOKS] author: Md. Sanower Hossain Shamim (116/18175)
+ -> scraped 1; saved total 33101
+[BOOKS] author: Md. Sohal Rana(Text) (117/18175)
+ -> scraped 1; saved total 33102
+[BOOKS] author: Md. Suhel Rana (118/18175)
+ -> scraped 6; saved total 33108
+[BOOKS] author: Md. Tazul Islam (119/18175)
+ -> scraped 1; saved total 33109
+[BOOKS] author: Md. Tofayel Hossain (BCS) (120/18175)
+ -> scraped 1; saved total 33110
+[BOOKS] author: Md. Yousuf Nizam (121/18175)
+ -> scraped 1; saved total 33111
+[BOOKS] author: Md. Zahedul Alam (122/18175)
+ -> scraped 2; saved total 33113
+[BOOKS] author: Md: Faruquzzaman Akan (123/18175)
+ -> scraped 1; saved total 33114
+[BOOKS] author: Michael Tofte (124/18175)
+ -> scraped 1; saved total 33115
+[BOOKS] author: Mijan Parvez J. (125/18175)
+ -> scraped 1; saved total 33116
+[BOOKS] author: Mirza Azizul Islam (126/18175)
+ -> scraped 1; saved total 33117
+[BOOKS] author: Moazzam Zaman (127/18175)
+ -> scraped 7; saved total 33124
+[BOOKS] author: Mohaiminul Islam Mufti (128/18175)
+ -> scraped 1; saved total 33125
+[BOOKS] author: Mohamed Edi Al-Araimi (129/18175)
+ -> scraped 1; saved total 33126
+[BOOKS] author: Mohammad Abdul Latif (130/18175)
+ -> scraped 2; saved total 33128
+[BOOKS] author: Mohammad Abdul Maleque (131/18175)
+ -> scraped 1; saved total 33129
+[BOOKS] author: Mohammad Abdul Wahed Tomal (132/18175)
+ -> scraped 1; saved total 33130
+[BOOKS] author: Mohammad Abrarul Hoque (133/18175)
+ -> scraped 1; saved total 33131
+[BOOKS] author: Mohammad Akbar Hosain (134/18175)
+ -> scraped 1; saved total 33132
+[BOOKS] author: Mohammad Alamgheer (135/18175)
+ -> scraped 1; saved total 33133
+[BOOKS] author: Mohammad Ameeruz Zaman (136/18175)
+ -> scraped 1; saved total 33134
+[BOOKS] author: Mohammad Ataur Rahman (137/18175)
+ -> scraped 1; saved total 33135
+[BOOKS] author: Mohammad Maruf Khan (138/18175)
+ -> scraped 3; saved total 33138
+[BOOKS] author: Mohammad Mohabbat Khan (139/18175)
+ -> scraped 1; saved total 33139
+[BOOKS] author: Mohammad Mohiuddin Mahi (140/18175)
+ -> scraped 5; saved total 33144
+[BOOKS] author: Mohammad Musa Khan (141/18175)
+ -> scraped 2; saved total 33146
+[BOOKS] author: Mohammad Rafi (142/18175)
+ -> scraped 2; saved total 33148
+[BOOKS] author: Mohammad Rafiqul Islam (143/18175)
+ -> scraped 3; saved total 33151
+[BOOKS] author: Mohammad Rahman, Ph.D (144/18175)
+ -> scraped 1; saved total 33152
+[BOOKS] author: Mohammad Sajjadur Rahman (145/18175)
+ -> scraped 1; saved total 33153
+[BOOKS] author: Mohammad Taher Hossain Salim (146/18175)
+ -> scraped 1; saved total 33154
+[BOOKS] author: Mohammad Tanzimuddin Khan (147/18175)
+ -> scraped 1; saved total 33155
+[BOOKS] author: Mohammad humayun kabir (148/18175)
+ -> scraped 2; saved total 33157
+[BOOKS] author: Mohammed Sarwar Alam (149/18175)
+ -> scraped 1; saved total 33158
+[BOOKS] author: Mohammod Ariful Islam (150/18175)
+ -> scraped 1; saved total 33159
+[BOOKS] author: Mohammod Jahidul Islam (151/18175)
+ -> scraped 1; saved total 33160
+[BOOKS] author: Mohammod Maniruzzaman Miah (152/18175)
+ -> scraped 2; saved total 33162
+[BOOKS] author: Monirul Hussain (153/18175)
+ -> scraped 1; saved total 33163
+[BOOKS] author: Monirun Necha Ninu (154/18175)
+ -> scraped 1; saved total 33164
+[BOOKS] author: Monjurul Alam (155/18175)
+ -> scraped 1; saved total 33165
+[BOOKS] author: Moonis Ahmar (156/18175)
+ -> scraped 1; saved total 33166
+[BOOKS] author: Mosharaff Hossain (157/18175)
+ -> scraped 1; saved total 33167
+[BOOKS] author: Mostaque Ahmed (158/18175)
+ -> scraped 1; saved total 33168
+[BOOKS] author: Mozammel Haque (159/18175)
+ -> scraped 2; saved total 33170
+[BOOKS] author: Mrinnyoee Dhor (160/18175)
+ -> scraped 1; saved total 33171
+[BOOKS] author: Muhammad A. Mohsin Al-Tuwaijri (161/18175)
+ -> scraped 0; saved total 33171
+[BOOKS] author: Muhammad Abdul Mughawiri (162/18175)
+ -> scraped 1; saved total 33172
+[BOOKS] author: Muhammad Ahmad bin Ismail Al-Muqaddam (163/18175)
+ -> scraped 1; saved total 33173
+[BOOKS] author: Muhammad Al-Ameen (164/18175)
+ -> scraped 1; saved total 33174
+[BOOKS] author: Muhammad Ali Hashimi (165/18175)
+ -> scraped 2; saved total 33176
+[BOOKS] author: Muhammad Ali Qutb (166/18175)
+ -> scraped 1; saved total 33177
+[BOOKS] author: Muhammad Asadullah Al-Galib (167/18175)
+ -> scraped 1; saved total 33178
+[BOOKS] author: Muhammad Ata ur Rahim (168/18175)
+ -> scraped 1; saved total 33179
+[BOOKS] author: Muhammad Bilal Lakhani (169/18175)
+ -> scraped 1; saved total 33180
+[BOOKS] author: Muhammad Bin Abdul Aziz (170/18175)
+ -> scraped 1; saved total 33181
+[BOOKS] author: Muhammad Bin Jamil Zeno (171/18175)
+ -> scraped 1; saved total 33182
+[BOOKS] author: Muhammad Haneef Shahid (172/18175)
+ -> scraped 1; saved total 33183
+[BOOKS] author: Muhammad Ibn Abdul Wahab (173/18175)
+ -> scraped 2; saved total 33185
+[BOOKS] author: Muhammad Ibn Salih Al Uthaymeen (174/18175)
+ -> scraped 4; saved total 33189
+[BOOKS] author: Muhammad Ismail al Muqaddam (175/18175)
+ -> scraped 2; saved total 33191
+[BOOKS] author: Muhammad Marmaduke Pickthall (176/18175)
+ -> scraped 0; saved total 33191
+[BOOKS] author: Muhammad Nazmul Haq (177/18175)
+ -> scraped 1; saved total 33192
+[BOOKS] author: Muhammad Rahbar (178/18175)
+ -> scraped 1; saved total 33193
+[BOOKS] author: Muhammad Rajjob Hossain (179/18175)
+ -> scraped 1; saved total 33194
+[BOOKS] author: Muhammad S.ar-Rahawan (180/18175)
+ -> scraped 1; saved total 33195
+[BOOKS] author: Muhammad Salih al-Munajjid (181/18175)
+ -> scraped 11; saved total 33206
+[BOOKS] author: Muhammad Samsul Haque (182/18175)
+ -> scraped 1; saved total 33207
+[BOOKS] author: Muhammad Yunus (183/18175)
+ -> scraped 1; saved total 33208
+[BOOKS] author: Muhammad Z. Mamun (184/18175)
+ -> scraped 1; saved total 33209
+[BOOKS] author: Muhammad bin Abdul-Aziz al-Musnad (185/18175)
+ -> scraped 2; saved total 33211
+[BOOKS] author: Muhammad ibn Sulayman at-Tamimi (186/18175)
+ -> scraped 1; saved total 33212
+[BOOKS] author: Muhammad ibn Sulaymân at-Tamimi (187/18175)
+ -> scraped 1; saved total 33213
+[BOOKS] author: Muhammed Ibn Ismaiel Al-Bukhari (188/18175)
+ -> scraped 1; saved total 33214
+[BOOKS] author: Muid Mustarik (189/18175)
+ -> scraped 1; saved total 33215
+[BOOKS] author: Muinul Islam (190/18175)
+ -> scraped 2; saved total 33217
+[BOOKS] author: Mukhlesur Rahman Mukit (191/18175)
+ -> scraped 2; saved total 33219
+[BOOKS] author: Munir Ahmed (192/18175)
+ -> scraped 1; saved total 33220
+[BOOKS] author: Munir Quddus (193/18175)
+ -> scraped 2; saved total 33222
+[BOOKS] author: Munshi Shirajul Haque (194/18175)
+ -> scraped 5; saved total 33227
+[BOOKS] author: Muntassir Mamoon (195/18175)
+ -> scraped 1; saved total 33228
+[BOOKS] author: Musharaf Hussain (196/18175)
+ -> scraped 1; saved total 33229
+[BOOKS] author: Mushfique-Us-Saleheen (197/18175)
+ -> scraped 1; saved total 33230
+[BOOKS] author: Mustafa K. Mujeri (198/18175)
+ -> scraped 1; saved total 33231
+[BOOKS] author: Mustafizur Rahman (199/18175)
+ -> scraped 1; saved total 33232
+[BOOKS] author: Muzaffer Ahmed (200/18175)
+ -> scraped 1; saved total 33233
+[BOOKS] author: Naceur Jabnoun (201/18175)
+ -> scraped 1; saved total 33234
+[BOOKS] author: Nadeem Qadir (202/18175)
+ -> scraped 1; saved total 33235
+[BOOKS] author: Nahid Sultana (203/18175)
+ -> scraped 2; saved total 33237
+[BOOKS] author: Najimuddin Ahmod (204/18175)
+ -> scraped 1; saved total 33238
+[BOOKS] author: Nayeem Ahmed Baloch (205/18175)
+ -> scraped 3; saved total 33241
+[BOOKS] author: Nayma Haque (206/18175)
+ -> scraped 1; saved total 33242
+[BOOKS] author: Nazibor Rahman (207/18175)
+ -> scraped 2; saved total 33244
+[BOOKS] author: Nazimuddin Ahmed (208/18175)
+ -> scraped 4; saved total 33248
+[BOOKS] author: Nazmul Amin Majumdar (209/18175)
+ -> scraped 2; saved total 33250
+[BOOKS] author: Nazmul Hasan (210/18175)
+ -> scraped 3; saved total 33253
+[BOOKS] author: Neeman A. Sobhan (211/18175)
+ -> scraped 1; saved total 33254
+[BOOKS] author: Niaz Zaman (212/18175)
+ -> scraped 5; saved total 33259
+[BOOKS] author: Nidhâm Sakkijha (213/18175)
+ -> scraped 1; saved total 33260
+[BOOKS] author: Nitham Sakkijha (214/18175)
+ -> scraped 1; saved total 33261
+[BOOKS] author: Nizam Ahmed (215/18175)
+ -> scraped 1; saved total 33262
+[BOOKS] author: Noazesh Ahmed (216/18175)
+ -> scraped 1; saved total 33263
+[BOOKS] author: Nurul Islam (217/18175)
+ -> scraped 4; saved total 33267
+[BOOKS] author: Oddapika Siddika Kabir (218/18175)
+ -> scraped 1; saved total 33268
+[BOOKS] author: Odhikar (219/18175)
+ -> scraped 2; saved total 33270
+[BOOKS] author: Omar Haider Chowdhury (220/18175)
+ -> scraped 1; saved total 33271
+[BOOKS] author: Paul Sillitoe (221/18175)
+ -> scraped 1; saved total 33272
+[BOOKS] author: Peter Dixon (222/18175)
+ -> scraped 1; saved total 33273
+[BOOKS] author: Pias Majid (223/18175)
+ -> scraped 1; saved total 33274
+[BOOKS] author: Pratap Datta (224/18175)
+ -> scraped 1; saved total 33275
+[BOOKS] author: Pratima Paul Majumder (225/18175)
+ -> scraped 2; saved total 33277
+[BOOKS] author: Premachandra Wattage (226/18175)
+ -> scraped 1; saved total 33278
+[BOOKS] author: Pro. Dr. Mezbauddin Ahmed (227/18175)
+ -> scraped 1; saved total 33279
+[BOOKS] author: Pro. Jahurul Islam (228/18175)
+ -> scraped 1; saved total 33280
+[BOOKS] author: Prof Abdul Barik Sarder (229/18175)
+ -> scraped 1; saved total 33281
+[BOOKS] author: Prof K M A Bari (230/18175)
+ -> scraped 1; saved total 33282
+[BOOKS] author: Prof Md. Abdul Awal (231/18175)
+ -> scraped 4; saved total 33286
+[BOOKS] author: Prof. Abdul Rashid Khan (232/18175)
+ -> scraped 1; saved total 33287
+[BOOKS] author: Prof. Dr. Kh. Mezbahuddin Ahmed (233/18175)
+ -> scraped 1; saved total 33288
+[BOOKS] author: Prof. Dr. Md. Fazlur Rahman (234/18175)
+ -> scraped 5; saved total 33293
+[BOOKS] author: Prof. MD. Maqbul Hossain (235/18175)
+ -> scraped 2; saved total 33295
+[BOOKS] author: Prof. Mahmoud Ismail Saleh (236/18175)
+ -> scraped 1; saved total 33296
+[BOOKS] author: Prof. Md. Golam Hossain Pramanik (237/18175)
+ -> scraped 1; saved total 33297
+[BOOKS] author: Prof. Md. Hafizur Rahman (238/18175)
+ -> scraped 1; saved total 33298
+[BOOKS] author: Prof. Moinuddin Chowdhury (239/18175)
+ -> scraped 1; saved total 33299
+[BOOKS] author: Prof. Rehman Sobhan (240/18175)
+ -> scraped 7; saved total 33306
+[BOOKS] author: Prof. Shah Muhammad Habibir Rahman (241/18175)
+ -> scraped 1; saved total 33307
+[BOOKS] author: Prof. Subodh Chandra Sinha (242/18175)
+ -> scraped 1; saved total 33308
+[BOOKS] author: Professor A. F. M. Abdur Rahman (243/18175)
+ -> scraped 4; saved total 33312
+[BOOKS] author: Professor Abdur Razzak (244/18175)
+ -> scraped 1; saved total 33313
+[BOOKS] author: Professor Ashim Kumar Saha (245/18175)
+ -> scraped 2; saved total 33315
+[BOOKS] author: Professor Dewan Kuddus (246/18175)
+ -> scraped 3; saved total 33318
+[BOOKS] author: Professor Dr. A H M Mujtaba Hossain (247/18175)
+ -> scraped 1; saved total 33319
+[BOOKS] author: Professor Dr. Ataul Haq Pramanik (248/18175)
+ -> scraped 1; saved total 33320
+[BOOKS] author: Professor Dr. B. M. Ikramul Haque (249/18175)
+ -> scraped 3; saved total 33323
+[BOOKS] author: Professor Dr. Emajuddin Ahamed (250/18175)
+ -> scraped 1; saved total 33324
+[BOOKS] author: Professor Dr. Faizur Rahman (251/18175)
+ -> scraped 1; saved total 33325
+[BOOKS] author: Professor Dr. Fozlur Rahman (252/18175)
+ -> scraped 2; saved total 33327
+[BOOKS] author: Professor Dr. Johirul Haque (253/18175)
+ -> scraped 1; saved total 33328
+[BOOKS] author: Professor Dr. M. Abu Misir (254/18175)
+ -> scraped 1; saved total 33329
+[BOOKS] author: Professor Dr. M. Abul Kashem Mojumdar (255/18175)
+ -> scraped 1; saved total 33330
+[BOOKS] author: Professor Dr. Md. Fazlul Haque (256/18175)
+ -> scraped 1; saved total 33331
+[BOOKS] author: Professor Dr. Mir Mahfuzul Haque (257/18175)
+ -> scraped 1; saved total 33332
+[BOOKS] author: Professor Haradhan Nag (258/18175)
+ -> scraped 1; saved total 33333
+[BOOKS] author: Professor Kazi Nurul Islam (259/18175)
+ -> scraped 1; saved total 33334
+[BOOKS] author: Professor M Mofizar Rahman (260/18175)
+ -> scraped 1; saved total 33335
+[BOOKS] author: Professor Mafizur Rahman (261/18175)
+ -> scraped 1; saved total 33336
+[BOOKS] author: Professor Md. Elias Hossain (262/18175)
+ -> scraped 1; saved total 33337
+[BOOKS] author: Professor Muhammad Nurul Haq (263/18175)
+ -> scraped 1; saved total 33338
+[BOOKS] author: Professor Muhammad Zulfiqar (264/18175)
+ -> scraped 3; saved total 33341
+[BOOKS] author: Professor Muhamoud Esma (265/18175)
+ -> scraped 1; saved total 33342
+[BOOKS] author: Qari Muhammad Idrees (266/18175)
+ -> scraped 1; saved total 33343
+[BOOKS] author: Quazi Mostain Billah (267/18175)
+ -> scraped 1; saved total 33344
+[BOOKS] author: R. C. Paul (268/18175)
+ -> scraped 1; saved total 33345
+[BOOKS] author: Raana Haider (269/18175)
+ -> scraped 2; saved total 33347
+[BOOKS] author: Rafiq Md. Jahangir Alam (270/18175)
+ -> scraped 2; saved total 33349
+[BOOKS] author: Ragib Noor (271/18175)
+ -> scraped 2; saved total 33351
+[BOOKS] author: Rahim M. Quazi (272/18175)
+ -> scraped 1; saved total 33352
+[BOOKS] author: Rahima Karim (273/18175)
+ -> scraped 3; saved total 33355
+[BOOKS] author: Rahman M Mahbub (274/18175)
+ -> scraped 1; saved total 33356
+[BOOKS] author: Raihan Ali (275/18175)
+ -> scraped 1; saved total 33357
+[BOOKS] author: Raisuddin Ahmed (276/18175)
+ -> scraped 1; saved total 33358
+[BOOKS] author: Rajib Chatterjee (277/18175)
+ -> scraped 1; saved total 33359
+[BOOKS] author: Rakib Mahadi (278/18175)
+ -> scraped 1; saved total 33360
+[BOOKS] author: Rakib Uddin Ahmed (279/18175)
+ -> scraped 1; saved total 33361
+[BOOKS] author: Ranabir Samaddar (280/18175)
+ -> scraped 1; saved total 33362
+[BOOKS] author: Rashidul Hassan Bachchu (281/18175)
+ -> scraped 1; saved total 33363
+[BOOKS] author: Raunaq Jahan (282/18175)
+ -> scraped 4; saved total 33367
+[BOOKS] author: Raymond J. Manderola (283/18175)
+ -> scraped 1; saved total 33368
+[BOOKS] author: Rezaqul Haider (284/18175)
+ -> scraped 1; saved total 33369
+[BOOKS] author: Rezoanul Hoque Shuvo (285/18175)
+ -> scraped 1; saved total 33370
+[BOOKS] author: Riaz Uddin-1 (286/18175)
+ -> scraped 1; saved total 33371
+[BOOKS] author: Rick Gregory (287/18175)
+ -> scraped 1; saved total 33372
+[BOOKS] author: Rita Afsar ( (288/18175)
+ -> scraped 1; saved total 33373
+[BOOKS] author: Roger Moody (289/18175)
+ -> scraped 1; saved total 33374
+[BOOKS] author: Rudabeh Shahid (290/18175)
+ -> scraped 1; saved total 33375
+[BOOKS] author: Ruhul Amin (291/18175)
+ -> scraped 0; saved total 33375
+[BOOKS] author: Ruhul Amin (Golpokar) (292/18175)
+ -> scraped 3; saved total 33378
+[BOOKS] author: Runa Khan (293/18175)
+ -> scraped 9; saved total 33387
+[BOOKS] author: Rushidan Islam Rahman (294/18175)
+ -> scraped 1; saved total 33388
+[BOOKS] author: S H Khan Majlish (295/18175)
+ -> scraped 1; saved total 33389
+[BOOKS] author: S M Belal Uddin (296/18175)
+ -> scraped 1; saved total 33390
+[BOOKS] author: S Q Sajedur Rahman (297/18175)
+ -> scraped 1; saved total 33391
+[BOOKS] author: S. M. Shahidul Isalm (298/18175)
+ -> scraped 1; saved total 33392
+[BOOKS] author: S. M. Zakir Hussain (299/18175)
+ -> scraped 60; saved total 33452
+[BOOKS] author: S. R. Osmani (300/18175)
+ -> scraped 1; saved total 33453
+[BOOKS] author: S.M. Eftekhar Uddin (301/18175)
+ -> scraped 1; saved total 33454
+[BOOKS] author: S.M. Faisal Arafat (302/18175)
+ -> scraped 1; saved total 33455
+[BOOKS] author: SAMEH STRAUCH (303/18175)
+ -> scraped 1; saved total 33456
+[BOOKS] author: SM Jakirul Islam (304/18175)
+ -> scraped 1; saved total 33457
+[BOOKS] author: Saeed Ali al-Qahtani (305/18175)
+ -> scraped 1; saved total 33458
+[BOOKS] author: Saad Islam (306/18175)
+ -> scraped 1; saved total 33459
+[BOOKS] author: Saadul Quader (307/18175)
+ -> scraped 1; saved total 33460
+[BOOKS] author: Saaliha (308/18175)
+ -> scraped 1; saved total 33461
+[BOOKS] author: Sabab Sabju Arnob (309/18175)
+ -> scraped 0; saved total 33461
+[BOOKS] author: Sabina Faiz Rashid (310/18175)
+ -> scraped 1; saved total 33462
+[BOOKS] author: Sad Yusuf Abu Aziz (311/18175)
+ -> scraped 1; saved total 33463
+[BOOKS] author: Sadaf Farooqi (312/18175)
+ -> scraped 3; saved total 33466
+[BOOKS] author: Saddam Hossain (313/18175)
+ -> scraped 1; saved total 33467
+[BOOKS] author: Sadiq Ahmed (314/18175)
+ -> scraped 1; saved total 33468
+[BOOKS] author: Sadruddin Ahmad (315/18175)
+ -> scraped 1; saved total 33469
+[BOOKS] author: Saeed bin Ali bin Wahf Al- Qahtani (316/18175)
+ -> scraped 1; saved total 33470
+[BOOKS] author: Saera Habib (317/18175)
+ -> scraped 1; saved total 33471
+[BOOKS] author: Safar Ali Akanda (318/18175)
+ -> scraped 1; saved total 33472
+[BOOKS] author: Safiqur Rahman (319/18175)
+ -> scraped 1; saved total 33473
+[BOOKS] author: Sahidullah (320/18175)
+ -> scraped 1; saved total 33474
+[BOOKS] author: Saida Chaudrhy (321/18175)
+ -> scraped 0; saved total 33474
+[BOOKS] author: Saifiur-Rahman Al-Mubarakpuri (322/18175)
+ -> scraped 2; saved total 33476
+[BOOKS] author: Saifulla (323/18175)
+ -> scraped 1; saved total 33477
+[BOOKS] author: Saifur Rahman Khan (324/18175)
+ -> scraped 18; saved total 33495
+[BOOKS] author: Saimum Kabir (325/18175)
+ -> scraped 1; saved total 33496
+[BOOKS] author: Sajedur Rahman (326/18175)
+ -> scraped 1; saved total 33497
+[BOOKS] author: Sakina Hirschfelder (327/18175)
+ -> scraped 1; saved total 33498
+[BOOKS] author: Salaahud Deen Ali A Mawjood (328/18175)
+ -> scraped 1; saved total 33499
+[BOOKS] author: Salah Bin M Al-Budair (329/18175)
+ -> scraped 1; saved total 33500
+[BOOKS] author: Saleem al-Hilal (330/18175)
+ -> scraped 1; saved total 33501
+[BOOKS] author: Salehuddin Ahmed (331/18175)
+ -> scraped 1; saved total 33502
+[BOOKS] author: Salih Al-Fawzaan (332/18175)
+ -> scraped 2; saved total 33504
+[BOOKS] author: Salim Jahan (333/18175)
+ -> scraped 2; saved total 33506
+[BOOKS] author: Salim al-Hilali (334/18175)
+ -> scraped 1; saved total 33507
+[BOOKS] author: Sameh Strauch (335/18175)
+ -> scraped 2; saved total 33509
+[BOOKS] author: Sami Ayyoub (336/18175)
+ -> scraped 1; saved total 33510
+[BOOKS] author: Samir R Nath (337/18175)
+ -> scraped 2; saved total 33512
+[BOOKS] author: Samuel Jaffe (338/18175)
+ -> scraped 1; saved total 33513
+[BOOKS] author: Saniyasnain Khan (339/18175)
+ -> scraped 3; saved total 33516
+[BOOKS] author: Sanjoy Barua (340/18175)
+ -> scraped 2; saved total 33518
+[BOOKS] author: Sayeda Rowshan Qadir (341/18175)
+ -> scraped 1; saved total 33519
+[BOOKS] author: Sayeda Zakia Sultana (342/18175)
+ -> scraped 1; saved total 33520
+[BOOKS] author: Sayeeda Salina (343/18175)
+ -> scraped 1; saved total 33521
+[BOOKS] author: Sayeedul Huq (344/18175)
+ -> scraped 1; saved total 33522
+[BOOKS] author: Sayyed Abul Ala Mawdudi (345/18175)
+ -> scraped 1; saved total 33523
+[BOOKS] author: Scott Flensburg (346/18175)
+ -> scraped 1; saved total 33524
+[BOOKS] author: Sejuti Mansur (347/18175)
+ -> scraped 1; saved total 33525
+[BOOKS] author: Shabeer Ahmad (348/18175)
+ -> scraped 1; saved total 33526
+[BOOKS] author: Shabnam Saleem (349/18175)
+ -> scraped 0; saved total 33526
+[BOOKS] author: Shafiqul Islam Sohel (350/18175)
+ -> scraped 3; saved total 33529
+[BOOKS] author: Shah M. Nazmul Alam (351/18175)
+ -> scraped 1; saved total 33530
+[BOOKS] author: Shah Mohammad Fazle Elahi (352/18175)
+ -> scraped 2; saved total 33532
+[BOOKS] author: Shahed Montaz (353/18175)
+ -> scraped 1; saved total 33533
+[BOOKS] author: Shahid Mohammad (354/18175)
+ -> scraped 1; saved total 33534
+[BOOKS] author: Shahidur R. Khandker (355/18175)
+ -> scraped 1; saved total 33535
+[BOOKS] author: Shahina Dewan (356/18175)
+ -> scraped 4; saved total 33539
+[BOOKS] author: Shaikh Abdul Aziz bin Abdullah bin Baz (357/18175)
+ -> scraped 3; saved total 33542
+[BOOKS] author: Shaikh Abdullah (358/18175)
+ -> scraped 1; saved total 33543
+[BOOKS] author: Shaikh Abdur Rahman As-Sadi (359/18175)
+ -> scraped 1; saved total 33544
+[BOOKS] author: Shaikh Fazlur Rahman (360/18175)
+ -> scraped 1; saved total 33545
+[BOOKS] author: Shaikh Maqsood Ali (361/18175)
+ -> scraped 1; saved total 33546
+[BOOKS] author: Shajahan Manik (362/18175)
+ -> scraped 2; saved total 33548
+[BOOKS] author: Shakyh Abdul Muhsin al-Abbaad (363/18175)
+ -> scraped 1; saved total 33549
+[BOOKS] author: Shamim Hamid (364/18175)
+ -> scraped 2; saved total 33551
+[BOOKS] author: Shamim Mondole (365/18175)
+ -> scraped 1; saved total 33552
+[BOOKS] author: Shamsul Alam Belal (366/18175)
+ -> scraped 2; saved total 33554
+[BOOKS] author: Shamsul Haque (367/18175)
+ -> scraped 1; saved total 33555
+[BOOKS] author: Sharif Hossain Ahmad Chowdhury (368/18175)
+ -> scraped 1; saved total 33556
+[BOOKS] author: Sharif Muhammad Younus (369/18175)
+ -> scraped 1; saved total 33557
+[BOOKS] author: Sharmin Jahan (370/18175)
+ -> scraped 4; saved total 33561
+[BOOKS] author: Shaykh Abdul Aziz Bin Abdullah (371/18175)
+ -> scraped 1; saved total 33562
+[BOOKS] author: Shaykh Mashhur Hasan Salman (372/18175)
+ -> scraped 1; saved total 33563
+[BOOKS] author: Shazia Nazlee (373/18175)
+ -> scraped 3; saved total 33566
+[BOOKS] author: Shazzadur Rahman (374/18175)
+ -> scraped 7; saved total 33573
+[BOOKS] author: Shirin Akter Shila (375/18175)
+ -> scraped 1; saved total 33574
+[BOOKS] author: Shukla Rani Halder (376/18175)
+ -> scraped 4; saved total 33578
+[BOOKS] author: Siam Mosharraf Hossain (377/18175)
+ -> scraped 1; saved total 33579
+[BOOKS] author: Siddiqa Juma (378/18175)
+ -> scraped 1; saved total 33580
+[BOOKS] author: Simeen Mahmud (379/18175)
+ -> scraped 1; saved total 33581
+[BOOKS] author: Sir Arthur Conan Doyle (380/18175)
+ -> scraped 1; saved total 33582
+[BOOKS] author: Siraz Uddin Sathi (381/18175)
+ -> scraped 5; saved total 33587
+[BOOKS] author: Sitara Alamgir (382/18175)
+ -> scraped 1; saved total 33588
+[BOOKS] author: Sobbosachi Mistri (383/18175)
+ -> scraped 3; saved total 33591
+[BOOKS] author: Sohel Chowdhury (384/18175)
+ -> scraped 3; saved total 33594
+[BOOKS] author: Someer Kumar Dev (385/18175)
+ -> scraped 0; saved total 33594
+[BOOKS] author: Subhash Chandra Sarker (386/18175)
+ -> scraped 1; saved total 33595
+[BOOKS] author: Sudeep Sen (387/18175)
+ -> scraped 1; saved total 33596
+[BOOKS] author: Sumaiya Khair (388/18175)
+ -> scraped 1; saved total 33597
+[BOOKS] author: Susan Holcombe (389/18175)
+ -> scraped 1; saved total 33598
+[BOOKS] author: Swadesh Ranjan Bose (390/18175)
+ -> scraped 2; saved total 33600
+[BOOKS] author: Swapan Halder (391/18175)
+ -> scraped 1; saved total 33601
+[BOOKS] author: Swapan Sikdar (392/18175)
+ -> scraped 1; saved total 33602
+[BOOKS] author: Swarna Paul (393/18175)
+ -> scraped 2; saved total 33604
+[BOOKS] author: Syed Ainal Huque (394/18175)
+ -> scraped 3; saved total 33607
+[BOOKS] author: Syed Akib (395/18175)
+ -> scraped 2; saved total 33609
+[BOOKS] author: Syed Giasuddin Ahmed (396/18175)
+ -> scraped 1; saved total 33610
+[BOOKS] author: Syed Hammadul Karim (397/18175)
+ -> scraped 1; saved total 33611
+[BOOKS] author: Syed Masood-ul-Hasan (398/18175)
+ -> scraped 1; saved total 33612
+[BOOKS] author: Syed Muhammad Sajjad Kabir (SMS Kabir) (399/18175)
+ -> scraped 1; saved total 33613
+[BOOKS] author: Syed Sazedur Rahman (400/18175)
+ -> scraped 2; saved total 33615
+[BOOKS] author: Syed Zakir Hussain (401/18175)
+ -> scraped 1; saved total 33616
+[BOOKS] author: Syeda Fathema Sultana (402/18175)
+ -> scraped 1; saved total 33617
+[BOOKS] author: Syeda Rozana Rashid (403/18175)
+ -> scraped 1; saved total 33618
+[BOOKS] author: Synapse Sprout Press Team (404/18175)
+ -> scraped 6; saved total 33624
+[BOOKS] author: T. J. Fitikides (405/18175)
+ -> scraped 1; saved total 33625
+[BOOKS] author: TBC Teachers Team (406/18175)
+ -> scraped 1; saved total 33626
+[BOOKS] author: Tahera Kassamali (407/18175)
+ -> scraped 1; saved total 33627
+[BOOKS] author: Tahmina Banu (408/18175)
+ -> scraped 1; saved total 33628
+[BOOKS] author: Tahmina Khatun (409/18175)
+ -> scraped 1; saved total 33629
+[BOOKS] author: Talim Hossain (410/18175)
+ -> scraped 1; saved total 33630
+[BOOKS] author: Tamun E Mursalin (411/18175)
+ -> scraped 2; saved total 33632
+[BOOKS] author: Tapon Kumar Ghosh (412/18175)
+ -> scraped 1; saved total 33633
+[BOOKS] author: Tasmina Payel (413/18175)
+ -> scraped 2; saved total 33635
+[BOOKS] author: Tasnuva Payel (414/18175)
+ -> scraped 2; saved total 33637
+[BOOKS] author: Taymullah A Rahman (415/18175)
+ -> scraped 1; saved total 33638
+[BOOKS] author: The World Bank (416/18175)
+ -> scraped 6; saved total 33644
+[BOOKS] author: Therese Blanchet (417/18175)
+ -> scraped 1; saved total 33645
+[BOOKS] author: Tofail Ahmed (418/18175)
+ -> scraped 1; saved total 33646
+[BOOKS] author: Touhidur Rahman (B.Sc and M.Sc) (419/18175)
+ -> scraped 3; saved total 33649
+[BOOKS] author: Towhid Bin Muzaffar (420/18175)
+ -> scraped 1; saved total 33650
+[BOOKS] author: Tuhin Rahman (421/18175)
+ -> scraped 1; saved total 33651
+[BOOKS] author: Tushar Ahmed (422/18175)
+ -> scraped 1; saved total 33652
+[BOOKS] author: Tusti Roza (423/18175)
+ -> scraped 9; saved total 33661
+[BOOKS] author: UMM Abdurrahman Sakina Hirschfelder (424/18175)
+ -> scraped 2; saved total 33663
+[BOOKS] author: Umar S. al-Ashqar (425/18175)
+ -> scraped 8; saved total 33671
+[BOOKS] author: Umm An-Numan (426/18175)
+ -> scraped 1; saved total 33672
+[BOOKS] author: Umm Muhammad (427/18175)
+ -> scraped 3; saved total 33675
+[BOOKS] author: Umm Zainab Salmah (428/18175)
+ -> scraped 1; saved total 33676
+[BOOKS] author: Utpal (429/18175)
+ -> scraped 1; saved total 33677
+[BOOKS] author: Wahid A Bali (430/18175)
+ -> scraped 1; saved total 33678
+[BOOKS] author: Wahiduddin Mahmud (431/18175)
+ -> scraped 1; saved total 33679
+[BOOKS] author: Waresul Karim (432/18175)
+ -> scraped 1; saved total 33680
+[BOOKS] author: Willem van Schendel (433/18175)
+ -> scraped 1; saved total 33681
+[BOOKS] author: William Shakespeare (434/18175)
+ -> scraped 1; saved total 33682
+[BOOKS] author: Withman (435/18175)
+ -> scraped 1; saved total 33683
+[BOOKS] author: Words and Pages (436/18175)
+ -> scraped 5; saved total 33688
+[BOOKS] author: Yahya M A Obdigo (437/18175)
+ -> scraped 2; saved total 33690
+[BOOKS] author: Yahya M. A. Ondigo (438/18175)
+ -> scraped 3; saved total 33693
+[BOOKS] author: Yasmin Mogahed (439/18175)
+ -> scraped 0; saved total 33693
+[BOOKS] author: Yeakob Peralman (440/18175)
+ -> scraped 1; saved total 33694
+[BOOKS] author: Yusuf Al-Hajj Ahmad (441/18175)
+ -> scraped 5; saved total 33699
+[BOOKS] author: Zabed Mohammad PhD (442/18175)
+ -> scraped 1; saved total 33700
+[BOOKS] author: Zafor Mohammad Mahmud (443/18175)
+ -> scraped 1; saved total 33701
+[BOOKS] author: Zahid Ul Arefin Choudhury (444/18175)
+ -> scraped 1; saved total 33702
+[BOOKS] author: Zahirul Islam (445/18175)
+ -> scraped 1; saved total 33703
+[BOOKS] author: Zaki Eusufzai (446/18175)
+ -> scraped 1; saved total 33704
+[BOOKS] author: Zejd Omerbegovic (447/18175)
+ -> scraped 1; saved total 33705
+[BOOKS] author: Zoya Amir (448/18175)
+ -> scraped 1; saved total 33706
+[BOOKS] author: ldmc (449/18175)
+ -> scraped 1; saved total 33707
+[BOOKS] author: ড. খালিদ আবু শাদি (450/18175)
+ -> scraped 5; saved total 33712
+[BOOKS] author: ড. মুহাম্মদ ইবনে আবদুর রহমান আরিফী (451/18175)
+ -> scraped 6; saved total 33718
+[BOOKS] author: القاضي ناصر الدين عبد الله بن عمر البيضاوي (কাজী নাসিরুদ্দিন আব্দুল্লাহ বিন আমর বায়যাবী) (452/18175)
+ -> scraped 2; saved total 33720
+[BOOKS] author: حكيم الامت مولانا اشرف علي تهانوي رح ( হাকীমুল উম্মত মাওলানা আশরাফ আলী থানভী রহ.) (453/18175)
+ -> scraped 0; saved total 33720
+[BOOKS] author: شيخ سراج الدين عثمان رحمه الله (শাইখ সিরাজ উদ্দিন উসমান রাহিমাহুমুল্লাহ) (454/18175)
+ -> scraped 0; saved total 33720
+[BOOKS] author: للعلامة ابن حاجب (আল্লামা ইবনে হাজীব) (455/18175)
+ -> scraped 0; saved total 33720
+[BOOKS] author: অঁতোয়ান দ্য স্যাঁৎ একজ্যুপেরি (456/18175)
+ -> scraped 2; saved total 33722
+[BOOKS] author: অং চিং (457/18175)
+ -> scraped 1; saved total 33723
+[BOOKS] author: অক্ষয়কুমার মৈত্রেয় (458/18175)
+ -> scraped 6; saved total 33729
+[BOOKS] author: অক্ষরপত্র সম্পাদনা পর্ষদ (459/18175)
+ -> scraped 60; saved total 33789
+[BOOKS] author: অক্ষয়কুমার দত্ত (460/18175)
+ -> scraped 6; saved total 33795
+[BOOKS] author: অক্ষয়কুমার মৈত্রয় (461/18175)
+ -> scraped 2; saved total 33797
+[BOOKS] author: অখিল নিয়োগী (স্বপনবুড়ো) (462/18175)
+ -> scraped 1; saved total 33798
+[BOOKS] author: অগ ম্যান্ডিনো (463/18175)
+ -> scraped 6; saved total 33804
+[BOOKS] author: অগাস্ট কুবিজ (464/18175)
+ -> scraped 1; saved total 33805
+[BOOKS] author: অগাস্টা গোলডিন (465/18175)
+ -> scraped 1; saved total 33806
+[BOOKS] author: অঘোর মন্ডল (466/18175)
+ -> scraped 2; saved total 33808
+[BOOKS] author: অঙ্কিতা (467/18175)
+ -> scraped 1; saved total 33809
+[BOOKS] author: অঙ্কুর ওয়ারিকু (468/18175)
+ -> scraped 1; saved total 33810
+[BOOKS] author: অঙ্কুর ওয়ারিকো (469/18175)
+ -> scraped 1; saved total 33811
+[BOOKS] author: অঙ্গনা পি. চ্যাটার্জি (470/18175)
+ -> scraped 2; saved total 33813
+[BOOKS] author: অচ্যুতচরণ চৌধুরী তত্ত্বনিধি (471/18175)
+ -> scraped 2; saved total 33815
+[BOOKS] author: অচ্যুৎ গোস্বামী (472/18175)
+ -> scraped 1; saved total 33816
+[BOOKS] author: অজন্তা রেজওয়ানা মির্জা (473/18175)
+ -> scraped 1; saved total 33817
+[BOOKS] author: অজয় রায় (474/18175)
+ -> scraped 1; saved total 33818
+[BOOKS] author: অজান্তা অহি (475/18175)
+ -> scraped 1; saved total 33819
+[BOOKS] author: অজিত কুমার গুহ (476/18175)
+ -> scraped 1; saved total 33820
+[BOOKS] author: অজিত কুমার নাগ (477/18175)
+ -> scraped 1; saved total 33821
+[BOOKS] author: অজিত কুমার বড়ুয়া (478/18175)
+ -> scraped 1; saved total 33822
+[BOOKS] author: অজিত কৃষ্ণ বসু (479/18175)
+ -> scraped 0; saved total 33822
+[BOOKS] author: অজিত রায় ভজন (480/18175)
+ -> scraped 1; saved total 33823
+[BOOKS] author: অজয় দাশগুপ্ত (481/18175)
+ -> scraped 6; saved total 33829
+[BOOKS] author: অজয় বিশ্বাস (482/18175)
+ -> scraped 1; saved total 33830
+[BOOKS] author: অজয় ভট্টাচার্য (483/18175)
+ -> scraped 1; saved total 33831
+[BOOKS] author: অজয় মিত্র (বিবিএ) (484/18175)
+ -> scraped 1; saved total 33832
+[BOOKS] author: অজয় রায় (485/18175)
+ -> scraped 0; saved total 33832
+[BOOKS] author: অজয় সরকার (486/18175)
+ -> scraped 17; saved total 33849
+[BOOKS] author: অঞ্জন আচার্য (487/18175)
+ -> scraped 5; saved total 33854
+[BOOKS] author: অঞ্জন দত্ত (488/18175)
+ -> scraped 3; saved total 33857
+[BOOKS] author: অঞ্জন মজুমদার (489/18175)
+ -> scraped 2; saved total 33859
+[BOOKS] author: অঞ্জন শরীফ (490/18175)
+ -> scraped 1; saved total 33860
+[BOOKS] author: অঞ্জন সাহা (491/18175)
+ -> scraped 1; saved total 33861
+[BOOKS] author: অঞ্জন সেন (492/18175)
+ -> scraped 1; saved total 33862
+[BOOKS] author: অঞ্জলি সরকার (493/18175)
+ -> scraped 1; saved total 33863
+[BOOKS] author: অড্রি ট্রুসকে (494/18175)
+ -> scraped 2; saved total 33865
+[BOOKS] author: অণিমা বিশ্বাস (495/18175)
+ -> scraped 1; saved total 33866
+[BOOKS] author: অতনু চক্রবর্ত্তী (496/18175)
+ -> scraped 2; saved total 33868
+[BOOKS] author: অতনু তিয়াস (497/18175)
+ -> scraped 1; saved total 33869
+[BOOKS] author: অতনু রায় চৌধুরী (498/18175)
+ -> scraped 1; saved total 33870
+[BOOKS] author: অতীন্দ্র মজুমদার (499/18175)
+ -> scraped 2; saved total 33872
+[BOOKS] author: অতুল সুর (500/18175)
+ -> scraped 3; saved total 33875
+[BOOKS] author: অতুলচন্দ্র গুপ্ত (501/18175)
+ -> scraped 3; saved total 33878
+[BOOKS] author: অতুলপ্রসাদ (502/18175)
+ -> scraped 1; saved total 33879
+[BOOKS] author: অথির চক্রবর্তী (503/18175)
+ -> scraped 2; saved total 33881
+[BOOKS] author: অদিতি চ্যাটার্জী (504/18175)
+ -> scraped 6; saved total 33887
+[BOOKS] author: অদিতি তুলি (505/18175)
+ -> scraped 2; saved total 33889
+[BOOKS] author: অদিতি ফাল্গুনী (506/18175)
+ -> scraped 4; saved total 33893
+[BOOKS] author: অদিতি ভট্টাচার্য্য (507/18175)
+ -> scraped 1; saved total 33894
+[BOOKS] author: অদ্বৈত কুমার দাস (508/18175)
+ -> scraped 5; saved total 33899
+[BOOKS] author: অদ্বৈত মল্লবর্মণ (509/18175)
+ -> scraped 6; saved total 33905
+[BOOKS] author: অদ্বৈত মারুত (510/18175)
+ -> scraped 3; saved total 33908
+[BOOKS] author: অদ্বয় দত্ত (511/18175)
+ -> scraped 1; saved total 33909
+[BOOKS] author: অদ্রি মনির হাসান (512/18175)
+ -> scraped 1; saved total 33910
+[BOOKS] author: অধীর বিশ্বাস (513/18175)
+ -> scraped 2; saved total 33912
+[BOOKS] author: অধ্যক্ষ (অব.) মোঃ আল মামুন জাহাঙ্গীরি (514/18175)
+ -> scraped 1; saved total 33913
+[BOOKS] author: অধ্যক্ষ আবদুর রাজ্জাক (515/18175)
+ -> scraped 0; saved total 33913
+[BOOKS] author: অধ্যক্ষ আবদুল মজীদ (516/18175)
+ -> scraped 1; saved total 33914
+[BOOKS] author: অধ্যক্ষ আবু আব্দুল্লাহেল কাফী (517/18175)
+ -> scraped 2; saved total 33916
+[BOOKS] author: অধ্যক্ষ আবু সাঈদ বিশ্বাস (518/18175)
+ -> scraped 1; saved total 33917
+[BOOKS] author: অধ্যক্ষ এ কিউ এম আবদুল হাকিম আল মাদানী (519/18175)
+ -> scraped 1; saved total 33918
+[BOOKS] author: অধ্যক্ষ এ. কে. এম. জহুরুল হক (520/18175)
+ -> scraped 3; saved total 33921
+[BOOKS] author: অধ্যক্ষ এইচ এম ওমর ফারুক সাইফী (521/18175)
+ -> scraped 1; saved total 33922
+[BOOKS] author: অধ্যক্ষ এম এ কালাম (522/18175)
+ -> scraped 29; saved total 33951
+[BOOKS] author: অধ্যক্ষ এম সোলাইমান কাসেমী (523/18175)
+ -> scraped 3; saved total 33954
+[BOOKS] author: অধ্যক্ষ ছমির আমিনুল (524/18175)
+ -> scraped 1; saved total 33955
+[BOOKS] author: অধ্যক্ষ পার্থ প্রতিম চৌধুরী (525/18175)
+ -> scraped 1; saved total 33956
+[BOOKS] author: অধ্যক্ষ বিশ্বনাথ মজুমদার (526/18175)
+ -> scraped 2; saved total 33958
+[BOOKS] author: অধ্যক্ষ মাও. যাইনুল আবেদীন (তামিরুল মিল্লাত) (527/18175)
+ -> scraped 1; saved total 33959
+[BOOKS] author: অধ্যক্ষ মাওলানা আবদুর রাজ্জাক (528/18175)
+ -> scraped 1; saved total 33960
+[BOOKS] author: অধ্যক্ষ মাওলানা মুহাম্মদ মফিজুর রহমান (529/18175)
+ -> scraped 1; saved total 33961
+[BOOKS] author: অধ্যক্ষ মাওলানা মুহাম্মদ যাইনুল আবেদীন (530/18175)
+ -> scraped 1; saved total 33962
+[BOOKS] author: অধ্যক্ষ মীর মকবুল আহমদ (531/18175)
+ -> scraped 4; saved total 33966
+[BOOKS] author: অধ্যক্ষ মুহাম্মদ আলমগীর (532/18175)
+ -> scraped 2; saved total 33968
+[BOOKS] author: অধ্যক্ষ মুহাম্মদ মিজানুর রহমান চৌধুরী (533/18175)
+ -> scraped 1; saved total 33969
+[BOOKS] author: অধ্যক্ষ মুহাম্মাদ ফজলুর রহমান (534/18175)
+ -> scraped 1; saved total 33970
+[BOOKS] author: অধ্যক্ষ সাইয়্যেদ কামালুদ্দীন জাফরী (535/18175)
+ -> scraped 1; saved total 33971
+[BOOKS] author: অধ্যক্ষ হাফিজ উদ্দিন আহমেদ (536/18175)
+ -> scraped 2; saved total 33973
+[BOOKS] author: অধ্যক্ষ হামিদুর হক মুন্সী (537/18175)
+ -> scraped 1; saved total 33974
+[BOOKS] author: অধ্যাঃ ড. এস এম আনোয়ারা (538/18175)
+ -> scraped 0; saved total 33974
+[BOOKS] author: অধ্যাপক অরুণ কুমার নাথ (539/18175)
+ -> scraped 1; saved total 33975
+[BOOKS] author: অধ্যাপক আতাউর রহমান (540/18175)
+ -> scraped 4; saved total 33979
+[BOOKS] author: অধ্যাপক আনোয়ারুল কবির (541/18175)
+ -> scraped 2; saved total 33981
+[BOOKS] author: অধ্যাপক আবদুর রাজ্জাক (542/18175)
+ -> scraped 0; saved total 33981
+[BOOKS] author: অধ্যাপক আবদুল কুদ্দুস আদিল (543/18175)
+ -> scraped 2; saved total 33983
+[BOOKS] author: অধ্যাপক আবদুল গফুর (544/18175)
+ -> scraped 2; saved total 33985
+[BOOKS] author: অধ্যাপক আবদুল মান্নান (545/18175)
+ -> scraped 1; saved total 33986
+[BOOKS] author: অধ্যাপক আবদুল হালিম (546/18175)
+ -> scraped 1; saved total 33987
+[BOOKS] author: অধ্যাপক আবু আহমেদ (547/18175)
+ -> scraped 0; saved total 33987
+[BOOKS] author: অধ্যাপক আবু সাইয়িদ (548/18175)
+ -> scraped 12; saved total 33999
+[BOOKS] author: অধ্যাপক আবু সৈয়দ (549/18175)
+ -> scraped 1; saved total 34000
+[BOOKS] author: অধ্যাপক আবুল আফছার (550/18175)
+ -> scraped 1; saved total 34001
+[BOOKS] author: অধ্যাপক আবুল কালাম চৌধুরী (551/18175)
+ -> scraped 1; saved total 34002
+[BOOKS] author: অধ্যাপক আবুল বাসার (552/18175)
+ -> scraped 2; saved total 34004
+[BOOKS] author: অধ্যাপক আব্দুল মতিন (553/18175)
+ -> scraped 1; saved total 34005
+[BOOKS] author: অধ্যাপক আব্দুল মান্নান চৌধূরী (554/18175)
+ -> scraped 1; saved total 34006
+[BOOKS] author: অধ্যাপক আব্দুস সালাম (555/18175)
+ -> scraped 1; saved total 34007
+[BOOKS] author: অধ্যাপক আলমগীর জলিল (556/18175)
+ -> scraped 1; saved total 34008
+[BOOKS] author: অধ্যাপক আশরাফ উজ জামান খান (557/18175)
+ -> scraped 1; saved total 34009
+[BOOKS] author: অধ্যাপক আসহাবউদ্দীন আহমদ (558/18175)
+ -> scraped 1; saved total 34010
+[BOOKS] author: অধ্যাপক এ কে আজাদ খান (559/18175)
+ -> scraped 2; saved total 34012
+[BOOKS] author: অধ্যাপক এ কে এম শহীদুল্লাহ (560/18175)
+ -> scraped 1; saved total 34013
+[BOOKS] author: অধ্যাপক এ, এফ, এম মতিউর রহমান (561/18175)
+ -> scraped 1; saved total 34014
+[BOOKS] author: অধ্যাপক এ. এন. চৌধুরী (562/18175)
+ -> scraped 3; saved total 34017
+[BOOKS] author: অধ্যাপক এ. এফ. এম. আবদুল আযীয (563/18175)
+ -> scraped 2; saved total 34019
+[BOOKS] author: অধ্যাপক একেএম শহীদুল্লাহ (564/18175)
+ -> scraped 2; saved total 34021
+[BOOKS] author: অধ্যাপক এম আনোয়ার হোসেন (565/18175)
+ -> scraped 2; saved total 34023
+[BOOKS] author: অধ্যাপক এম শাহজাহান মিনা (566/18175)
+ -> scraped 3; saved total 34026
+[BOOKS] author: অধ্যাপক এস এম জয়নুল আবেদিন (567/18175)
+ -> scraped 1; saved total 34027
+[BOOKS] author: অধ্যাপক এস এম শফিউর রহমান (568/18175)
+ -> scraped 1; saved total 34028
+[BOOKS] author: অধ্যাপক এস. এম. ইমামউদ্দিন (569/18175)
+ -> scraped 1; saved total 34029
+[BOOKS] author: অধ্যাপক কফিল উদ্দিন আহমেদ (570/18175)
+ -> scraped 2; saved total 34031
+[BOOKS] author: অধ্যাপক কাজী নাঈম উদ্দীন (571/18175)
+ -> scraped 1; saved total 34032
+[BOOKS] author: অধ্যাপক কাজী মফিজুল ইসলাম (বাচ্চু) (572/18175)
+ -> scraped 1; saved total 34033
+[BOOKS] author: অধ্যাপক কামরুল আহসান চৌধুরী (573/18175)
+ -> scraped 2; saved total 34035
+[BOOKS] author: অধ্যাপক কে. আলী (574/18175)
+ -> scraped 2; saved total 34037
+[BOOKS] author: অধ্যাপক খন্দকার আবদুল রহিম (575/18175)
+ -> scraped 1; saved total 34038
+[BOOKS] author: অধ্যাপক খুরশিদ আহমদ (576/18175)
+ -> scraped 3; saved total 34041
+[BOOKS] author: অধ্যাপক গোলাম আযম (577/18175)
+ -> scraped 33; saved total 34074
+[BOOKS] author: অধ্যাপক জাকির হোসেন (578/18175)
+ -> scraped 2; saved total 34076
+[BOOKS] author: অধ্যাপক জে. এম. বেলাল হোসেন সরকার (579/18175)
+ -> scraped 3; saved total 34079
+[BOOKS] author: অধ্যাপক ড. অনিরুদ্ধ কাহালি (580/18175)
+ -> scraped 1; saved total 34080
+[BOOKS] author: অধ্যাপক ড. অরূপরতন চৌধুরী (581/18175)
+ -> scraped 13; saved total 34093
+[BOOKS] author: অধ্যাপক ড. আবদুল মান্নান চৌধুরী (582/18175)
+ -> scraped 6; saved total 34099
+[BOOKS] author: অধ্যাপক ড. আবদুস সবুর খান (583/18175)
+ -> scraped 1; saved total 34100
+[BOOKS] author: অধ্যাপক ড. আবু নোমান রফীকুর রহমান (584/18175)
+ -> scraped 1; saved total 34101
+[BOOKS] author: অধ্যাপক ড. এ আর খান (585/18175)
+ -> scraped 1; saved total 34102
+[BOOKS] author: অধ্যাপক ড. জাকিয়া পারভীন (586/18175)
+ -> scraped 0; saved total 34102
+[BOOKS] author: অধ্যাপক ড. ফজলে এলাহী মোহাম্মদ ফয়সাল (587/18175)
+ -> scraped 1; saved total 34103
+[BOOKS] author: অধ্যাপক ড. ফালেহ ইবন মুহাম্মাদ আস-সুগাইর (588/18175)
+ -> scraped 1; saved total 34104
+[BOOKS] author: অধ্যাপক ড. বেদপ্রকাশ উপাধ্যায় (589/18175)
+ -> scraped 2; saved total 34106
+[BOOKS] author: অধ্যাপক ড. মীজানুর রহমান (590/18175)
+ -> scraped 7; saved total 34113
+[BOOKS] author: অধ্যাপক ড. মীর আকরামুজ্জামান (591/18175)
+ -> scraped 1; saved total 34114
+[BOOKS] author: অধ্যাপক ড. মুহাম্মদ আব্দুর রশীদ (592/18175)
+ -> scraped 2; saved total 34116
+[BOOKS] author: অধ্যাপক ড. মুহাম্মাদ আব্দুল্লাহ (593/18175)
+ -> scraped 1; saved total 34117
+[BOOKS] author: অধ্যাপক ড. মোঃ ইসমাইল জবিউল্লাহ (594/18175)
+ -> scraped 3; saved total 34120
+[BOOKS] author: অধ্যাপক ড. মোঃ গোলাম মাওলা চৌধুরী (595/18175)
+ -> scraped 4; saved total 34124
+[BOOKS] author: অধ্যাপক ড. মোঃ শামসুল আলম (596/18175)
+ -> scraped 2; saved total 34126
+[BOOKS] author: অধ্যাপক ড. মোহাম্মদ বাহাউদ্দিন (597/18175)
+ -> scraped 2; saved total 34128
+[BOOKS] author: অধ্যাপক ড. সফিউদ্দিন আহমেদ (598/18175)
+ -> scraped 1; saved total 34129
+[BOOKS] author: অধ্যাপক ড. সিরাজুল ইসলাম (599/18175)
+ -> scraped 6; saved total 34135
+[BOOKS] author: অধ্যাপক ড. সুরাইয়া আক্তার (600/18175)
+ -> scraped 1; saved total 34136
+[BOOKS] author: অধ্যাপক ড. সৈয়দ মাহমুদুল হাসান (601/18175)
+ -> scraped 1; saved total 34137
+[BOOKS] author: অধ্যাপক ড. হায়াৎ মামুদ (602/18175)
+ -> scraped 2; saved total 34139
+[BOOKS] author: অধ্যাপক ডা. অরূপ রতন চৌধুরী (603/18175)
+ -> scraped 2; saved total 34141
+[BOOKS] author: অধ্যাপক ডা. এ. এফ. এম সেলিম (604/18175)
+ -> scraped 1; saved total 34142
+[BOOKS] author: অধ্যাপক ডা. এ. কে. এম ফজলুল হক (605/18175)
+ -> scraped 1; saved total 34143
+[BOOKS] author: অধ্যাপক ডা. এন এ কামরুল আহসান (606/18175)
+ -> scraped 4; saved total 34147
+[BOOKS] author: অধ্যাপক ডা. এস এম মোস্তফা জামান (607/18175)
+ -> scraped 1; saved total 34148
+[BOOKS] author: অধ্যাপক ডা. এস. এম. রেজাউল করিম মারুফ (608/18175)
+ -> scraped 1; saved total 34149
+[BOOKS] author: অধ্যাপক ডা. কামরুল হাসান খান (609/18175)
+ -> scraped 3; saved total 34152
+[BOOKS] author: অধ্যাপক ডা. খাজা নাজিম উদ্দীন (610/18175)
+ -> scraped 1; saved total 34153
+[BOOKS] author: অধ্যাপক ডা. গোপেন কুমার কুণ্ডু (611/18175)
+ -> scraped 1; saved total 34154
+[BOOKS] author: অধ্যাপক ডা. জাহীর আল-আমীন (612/18175)
+ -> scraped 1; saved total 34155
+[BOOKS] author: অধ্যাপক ডা. প্রাণ গোপাল দত্ত (613/18175)
+ -> scraped 5; saved total 34160
+[BOOKS] author: অধ্যাপক ডা. মুহাম্মদ রফিকুল আলম (614/18175)
+ -> scraped 1; saved total 34161
+[BOOKS] author: অধ্যাপক ডা. মো. আজিজুল ইসলাম (615/18175)
+ -> scraped 2; saved total 34163
+[BOOKS] author: অধ্যাপক ডা. মো. রুহুল ফুরকান সিদ্দিক (616/18175)
+ -> scraped 1; saved total 34164
+[BOOKS] author: অধ্যাপক ডা. মো. শহীদুল্লাহ (617/18175)
+ -> scraped 3; saved total 34167
+[BOOKS] author: অধ্যাপক ডা. মোঃ তাহমিনুর রহমান সজল (618/18175)
+ -> scraped 3; saved total 34170
+[BOOKS] author: অধ্যাপক ডা. মোঃ শহীদুল্লাহ (619/18175)
+ -> scraped 5; saved total 34175
+[BOOKS] author: অধ্যাপক ডা. মোঃ শারফুদ্দিন আহমেদ (620/18175)
+ -> scraped 1; saved total 34176
+[BOOKS] author: অধ্যাপক ডা. মোহাম্মদ আলমগীর চৌধুরী (621/18175)
+ -> scraped 1; saved total 34177
+[BOOKS] author: অধ্যাপক ডা. মোহাম্মদ আলী (622/18175)
+ -> scraped 1; saved total 34178
+[BOOKS] author: অধ্যাপক ডা. মোহাম্মদ ফজলুল হক (623/18175)
+ -> scraped 2; saved total 34180
+[BOOKS] author: অধ্যাপক ডা. মোহাম্মদ শাহ জহিরুল হক চৌধুরী (624/18175)
+ -> scraped 1; saved total 34181
+[BOOKS] author: অধ্যাপক ডা. শাহেরা খাতুন বেলা (625/18175)
+ -> scraped 1; saved total 34182
+[BOOKS] author: অধ্যাপক ডা. শুভাগত চৌধুরী (626/18175)
+ -> scraped 13; saved total 34195
+[BOOKS] author: অধ্যাপক ডা. সানজিদা শাহরিয়া (627/18175)
+ -> scraped 6; saved total 34201
+[BOOKS] author: অধ্যাপক ডা. সাহানারা চৌধুরী (628/18175)
+ -> scraped 1; saved total 34202
+[BOOKS] author: অধ্যাপক ডা. হোসনে আরা তাহমিন চারু (629/18175)
+ -> scraped 3; saved total 34205
+[BOOKS] author: অধ্যাপক ডাক্তার এম. শহীদুর রহমান (630/18175)
+ -> scraped 1; saved total 34206
+[BOOKS] author: অধ্যাপক তুহিন কুমার মুখোপাধ্যায় (631/18175)
+ -> scraped 1; saved total 34207
+[BOOKS] author: অধ্যাপক দেলোয়ার হোসেন হাওলাদার (632/18175)
+ -> scraped 1; saved total 34208
+[BOOKS] author: অধ্যাপক নিরঞ্জন অধিকারী (633/18175)
+ -> scraped 2; saved total 34210
+[BOOKS] author: অধ্যাপক নীলকমল বিশ্বাস (634/18175)
+ -> scraped 4; saved total 34214
+[BOOKS] author: অধ্যাপক নীহাররঞ্জন সরকার (635/18175)
+ -> scraped 6; saved total 34220
+[BOOKS] author: অধ্যাপক নুরুল ইসলাম (636/18175)
+ -> scraped 5; saved total 34225
+[BOOKS] author: অধ্যাপক নূরুল আমিন চৌধুরী (637/18175)
+ -> scraped 2; saved total 34227
+[BOOKS] author: অধ্যাপক ফেরদৌসী বেগম (638/18175)
+ -> scraped 2; saved total 34229
+[BOOKS] author: অধ্যাপক বদর উদ্দিন আহাম্মদ (639/18175)
+ -> scraped 8; saved total 34237
+[BOOKS] author: অধ্যাপক বেগম সাঈদা আখতার (640/18175)
+ -> scraped 3; saved total 34240
+[BOOKS] author: অধ্যাপক ম. হালিম (641/18175)
+ -> scraped 4; saved total 34244
+[BOOKS] author: অধ্যাপক মনজুরুল আলম খান (642/18175)
+ -> scraped 1; saved total 34245
+[BOOKS] author: অধ্যাপক মনজুরুল ইসলাম (643/18175)
+ -> scraped 1; saved total 34246
+[BOOKS] author: অধ্যাপক মফিজুর রহমান (644/18175)
+ -> scraped 16; saved total 34262
+[BOOKS] author: অধ্যাপক মমতাজ বেগম (645/18175)
+ -> scraped 1; saved total 34263
+[BOOKS] author: অধ্যাপক মাঅধ্যাপক মাওলানা আখতার ফারূকও. আখতার ফারূক রহ. (646/18175)
+ -> scraped 1; saved total 34264
+[BOOKS] author: অধ্যাপক মাওলানা আখতার ফারূক (647/18175)
+ -> scraped 6; saved total 34270
+[BOOKS] author: অধ্যাপক মাওলানা আতিকুর রহমান ভূঁইয়া (648/18175)
+ -> scraped 2; saved total 34272
+[BOOKS] author: অধ্যাপক মাওলানা হারুনুর রশীদ খান (649/18175)
+ -> scraped 1; saved total 34273
+[BOOKS] author: অধ্যাপক মাযহারুল ইসলাম (650/18175)
+ -> scraped 2; saved total 34275
+[BOOKS] author: অধ্যাপক মাসুম রহমান (651/18175)
+ -> scraped 2; saved total 34277
+[BOOKS] author: অধ্যাপক মুজাহিদুল ইসলাম (652/18175)
+ -> scraped 1; saved total 34278
+[BOOKS] author: অধ্যাপক মুজিবুর রহমান (653/18175)
+ -> scraped 6; saved total 34284
+[BOOKS] author: অধ্যাপক মুহাম্মদ ইকবাল কিলানী (654/18175)
+ -> scraped 6; saved total 34290
+[BOOKS] author: অধ্যাপক মুহাম্মদ নুরুল ইসলাম (655/18175)
+ -> scraped 5; saved total 34295
+[BOOKS] author: অধ্যাপক মুহাম্মদ ফরিদ উদ্দিন খান (656/18175)
+ -> scraped 1; saved total 34296
+[BOOKS] author: অধ্যাপক মুহাম্মাদ নূরুল ইসলাম (657/18175)
+ -> scraped 4; saved total 34300
+[BOOKS] author: অধ্যাপক মুহাম্মাদ নূরুল ইসলাম মক্কী (658/18175)
+ -> scraped 12; saved total 34312
+[BOOKS] author: অধ্যাপক মুহাম্মাদ সিরাজ উদ্দীন (659/18175)
+ -> scraped 1; saved total 34313
+[BOOKS] author: অধ্যাপক মুয়ায্‌যম হুসায়ন (660/18175)
+ -> scraped 1; saved total 34314
+[BOOKS] author: অধ্যাপক মো. আলাউদ্দিন মিঞা (661/18175)
+ -> scraped 1; saved total 34315
+[BOOKS] author: অধ্যাপক মো. আলী আশরাফ (662/18175)
+ -> scraped 1; saved total 34316
+[BOOKS] author: অধ্যাপক মো: আবু বক্কর ছিদ্দিক (663/18175)
+ -> scraped 1; saved total 34317
+[BOOKS] author: অধ্যাপক মো: আব্দুল খালেক (664/18175)
+ -> scraped 1; saved total 34318
+[BOOKS] author: অধ্যাপক মোঃ আবদুল মজিদ (665/18175)
+ -> scraped 1; saved total 34319
+[BOOKS] author: অধ্যাপক মোঃ আবদুল মান্নান (666/18175)
+ -> scraped 9; saved total 34328
+[BOOKS] author: অধ্যাপক মোঃ আব্দুর রউফ (667/18175)
+ -> scraped 3; saved total 34331
+[BOOKS] author: অধ্যাপক মোঃ আব্দুল মান্‌নান (668/18175)
+ -> scraped 1; saved total 34332
+[BOOKS] author: অধ্যাপক মোঃ আব্দুস ছালাম মিয়া (669/18175)
+ -> scraped 1; saved total 34333
+[BOOKS] author: অধ্যাপক মোঃ আব্দুস ছালাম মিয়া (হুমায়ুন) (670/18175)
+ -> scraped 1; saved total 34334
+[BOOKS] author: অধ্যাপক মোঃ গোলাম হোসেন প্রামানিক (671/18175)
+ -> scraped 5; saved total 34339
+[BOOKS] author: অধ্যাপক মোঃ ছফিউল্লাহ মাহমুদী (672/18175)
+ -> scraped 2; saved total 34341
+[BOOKS] author: অধ্যাপক মোঃ মকবুল হোসেন (673/18175)
+ -> scraped 1; saved total 34342
+[BOOKS] author: অধ্যাপক মোঃ সিরাজুল ইসলাম (674/18175)
+ -> scraped 1; saved total 34343
+[BOOKS] author: অধ্যাপক মোজাফফর আহমদ (675/18175)
+ -> scraped 1; saved total 34344
+[BOOKS] author: অধ্যাপক মোশাররফ হোসাইন (676/18175)
+ -> scraped 2; saved total 34346
+[BOOKS] author: অধ্যাপক মোহাম্মদ মোসাররফ হোসাইন (677/18175)
+ -> scraped 1; saved total 34347
+[BOOKS] author: অধ্যাপক মোহাম্মাদ মোজাম্মেল হক (678/18175)
+ -> scraped 7; saved total 34354
+[BOOKS] author: অধ্যাপক রফিকুল ইসলাম (679/18175)
+ -> scraped 1; saved total 34355
+[BOOKS] author: অধ্যাপক রাজু আহমেদ (680/18175)
+ -> scraped 4; saved total 34359
+[BOOKS] author: অধ্যাপক লরেন্স জেরিং (681/18175)
+ -> scraped 1; saved total 34360
+[BOOKS] author: অধ্যাপক লুৎফুন নাহার রউফ (682/18175)
+ -> scraped 1; saved total 34361
+[BOOKS] author: অধ্যাপক শান্তিময় রায় (683/18175)
+ -> scraped 1; saved total 34362
+[BOOKS] author: অধ্যাপক শান্তিরঞ্জন ভৌমিক (684/18175)
+ -> scraped 4; saved total 34366
+[BOOKS] author: অধ্যাপক শাহানা পারভীন লাভলী (685/18175)
+ -> scraped 1; saved total 34367
+[BOOKS] author: অধ্যাপক শাহেদ আলী (686/18175)
+ -> scraped 1; saved total 34368
+[BOOKS] author: অধ্যাপক শেখ মো: সলিমউল্লাহ (687/18175)
+ -> scraped 2; saved total 34370
+[BOOKS] author: অধ্যাপক শেখর রঞ্জন সাহা (688/18175)
+ -> scraped 12; saved total 34382
+[BOOKS] author: অধ্যাপক সফিক রেজা (689/18175)
+ -> scraped 1; saved total 34383
+[BOOKS] author: অধ্যাপক সৈয়দ আব্দুস সাত্তার (690/18175)
+ -> scraped 1; saved total 34384
+[BOOKS] author: অধ্যাপক সৈয়দ বেলায়েত হোসেন (691/18175)
+ -> scraped 1; saved total 34385
+[BOOKS] author: অধ্যাপক সৈয়দ মোদাচ্ছের আলী (692/18175)
+ -> scraped 6; saved total 34391
+[BOOKS] author: অধ্যাপক হাবিবুর রহমান (693/18175)
+ -> scraped 1; saved total 34392
+[BOOKS] author: অধ্যাপক হারাধন নাগ (694/18175)
+ -> scraped 7; saved total 34399
+[BOOKS] author: অধ্যাপক হিরেন্দ্রনাথ বিশ্বাস (695/18175)
+ -> scraped 2; saved total 34401
+[BOOKS] author: অধ্যাপক হীরেন্দ্রনাথ বিশ্বাস (696/18175)
+ -> scraped 2; saved total 34403
+[BOOKS] author: অধ্যাপিকা জোছনা কবীর (697/18175)
+ -> scraped 1; saved total 34404
+[BOOKS] author: অধ্যাপিকা নূরজাহান বেগম (698/18175)
+ -> scraped 1; saved total 34405
+[BOOKS] author: অধ্যাপিকা মুর্শিদা আক্তার মৌরী (699/18175)
+ -> scraped 1; saved total 34406
+[BOOKS] author: অধ্যাপিকা রীনাত ফওজিয়া (700/18175)
+ -> scraped 2; saved total 34408
+[BOOKS] author: অধ্যাপিকা শাহানা পারভীন (701/18175)
+ -> scraped 1; saved total 34409
+[BOOKS] author: অধ্যাপিকা সিদ্দিকা কবীর (702/18175)
+ -> scraped 3; saved total 34412
+[BOOKS] author: অধ্যাপিকা সুফিয়া আক্তার (703/18175)
+ -> scraped 2; saved total 34414
+[BOOKS] author: অধ্যাপিকা সোহেলা সোবহান (704/18175)
+ -> scraped 0; saved total 34414
+[BOOKS] author: অধ্যাপিকা হাফিজা ইসলাম (705/18175)
+ -> scraped 1; saved total 34415
+[BOOKS] author: অনন্ত নিগার (706/18175)
+ -> scraped 5; saved total 34420
+[BOOKS] author: অনন্ত মৈত্রী (707/18175)
+ -> scraped 4; saved total 34424
+[BOOKS] author: অনন্ত সিংহ (708/18175)
+ -> scraped 2; saved total 34426
+[BOOKS] author: অনন্য আজাদ (709/18175)
+ -> scraped 1; saved total 34427
+[BOOKS] author: অনন্যা রুমা (710/18175)
+ -> scraped 1; saved total 34428
+[BOOKS] author: অনামিকা চৌধুরী (711/18175)
+ -> scraped 1; saved total 34429
+[BOOKS] author: অনামিকা হক লিলি (712/18175)
+ -> scraped 3; saved total 34432
+[BOOKS] author: অনার্য মুর্শিদ (713/18175)
+ -> scraped 1; saved total 34433
+[BOOKS] author: অনিক আফসান নেওয়াজ (714/18175)
+ -> scraped 1; saved total 34434
+[BOOKS] author: অনিক খান (715/18175)
+ -> scraped 2; saved total 34436
+[BOOKS] author: অনিক খান (ছড়াকার) (716/18175)
+ -> scraped 2; saved total 34438
+[BOOKS] author: অনিক মজুমদার (717/18175)
+ -> scraped 8; saved total 34446
+[BOOKS] author: অনিক মাহমুদ (718/18175)
+ -> scraped 2; saved total 34448
+[BOOKS] author: অনিক শুভ (719/18175)
+ -> scraped 1; saved total 34449
+[BOOKS] author: অনিতা আনন্দ (720/18175)
+ -> scraped 1; saved total 34450
+[BOOKS] author: অনিতা আনান্দ (721/18175)
+ -> scraped 1; saved total 34451
+[BOOKS] author: অনিতা নেইর (722/18175)
+ -> scraped 2; saved total 34453
+[BOOKS] author: অনিন্দিতা গোস্বামী (723/18175)
+ -> scraped 1; saved total 34454
+[BOOKS] author: অনিন্দ্য আর্য্যু (724/18175)
+ -> scraped 2; saved total 34456
+[BOOKS] author: অনিন্দ্য কৌশিক (725/18175)
+ -> scraped 1; saved total 34457
+[BOOKS] author: অনিন্দ্য দাসগুপ্ত (726/18175)
+ -> scraped 1; saved total 34458
+[BOOKS] author: অনিমা অনি (727/18175)
+ -> scraped 1; saved total 34459
+[BOOKS] author: অনিমেষ সাহা (728/18175)
+ -> scraped 1; saved total 34460
+[BOOKS] author: অনিরুদ্ধ আলম (729/18175)
+ -> scraped 5; saved total 34465
+[BOOKS] author: অনিরুদ্ধ প্রামাণিক (730/18175)
+ -> scraped 7; saved total 34472
+[BOOKS] author: অনিরুদ্ধ বুলবুল (731/18175)
+ -> scraped 1; saved total 34473
+[BOOKS] author: অনির্বাণ ভট্টাচার্য্য (732/18175)
+2026-06-01 23:42:43,347 [INFO] [SKIP] Wafilife_All_Authors.csv already exists. Use --force-list to refresh.
+2026-06-01 23:42:43,783 [INFO] [SKIP] Wafilife_All_Publishers.csv already exists. Use --force-list to refresh.
+2026-06-01 23:42:43,909 [INFO] [SKIP] Wafilife_All_Subjects.csv already exists. Use --force-list to refresh.
+2026-06-02 03:25:00,834 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাওলানা-শফিকুল-ইসলাম/page/2/ (1/3): ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-02 03:25:02,136 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাওলানা-শফিকুল-ইসলাম/page/2/ (2/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%93%E0%A6%B2%E0%A6%BE%E0%A6%A8%E0%A6%BE-%E0%A6%B6%E0%A6%AB%E0%A6%BF%E0%A6%95%E0%A7%81%E0%A6%B2-%E0%A6%87%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 03:25:04,575 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাওলানা-শফিকুল-ইসলাম/page/2/ (3/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%93%E0%A6%B2%E0%A6%BE%E0%A6%A8%E0%A6%BE-%E0%A6%B6%E0%A6%AB%E0%A6%BF%E0%A6%95%E0%A7%81%E0%A6%B2-%E0%A6%87%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 03:25:04,576 [ERROR] Skipping https://www.wafilife.com/cat/books/author/মাওলানা-শফিকুল-ইসলাম/page/2/ after retries: HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%93%E0%A6%B2%E0%A6%BE%E0%A6%A8%E0%A6%BE-%E0%A6%B6%E0%A6%AB%E0%A6%BF%E0%A6%95%E0%A7%81%E0%A6%B2-%E0%A6%87%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 03:25:05,370 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাওলানা-শফীকুল-ইসলাম (1/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%93%E0%A6%B2%E0%A6%BE%E0%A6%A8%E0%A6%BE-%E0%A6%B6%E0%A6%AB%E0%A7%80%E0%A6%95%E0%A7%81%E0%A6%B2-%E0%A6%87%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 05:45:28,867 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাওলানা-শফীকুল-ইসলাম (2/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%93%E0%A6%B2%E0%A6%BE%E0%A6%A8%E0%A6%BE-%E0%A6%B6%E0%A6%AB%E0%A7%80%E0%A6%95%E0%A7%81%E0%A6%B2-%E0%A6%87%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 05:45:31,329 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাওলানা-শফীকুল-ইসলাম (3/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%93%E0%A6%B2%E0%A6%BE%E0%A6%A8%E0%A6%BE-%E0%A6%B6%E0%A6%AB%E0%A7%80%E0%A6%95%E0%A7%81%E0%A6%B2-%E0%A6%87%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 05:45:31,334 [ERROR] Skipping https://www.wafilife.com/cat/books/author/মাওলানা-শফীকুল-ইসলাম after retries: HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%93%E0%A6%B2%E0%A6%BE%E0%A6%A8%E0%A6%BE-%E0%A6%B6%E0%A6%AB%E0%A7%80%E0%A6%95%E0%A7%81%E0%A6%B2-%E0%A6%87%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 12:56:37,873 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/mawlana-shorif-hasan-shahin/page/2/ (1/3): ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-02 12:56:39,681 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/mawlana-shorif-hasan-shahin/page/2/ (2/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mawlana-shorif-hasan-shahin/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 12:56:41,684 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/mawlana-shorif-hasan-shahin/page/2/ (3/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mawlana-shorif-hasan-shahin/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 12:56:41,691 [ERROR] Skipping https://www.wafilife.com/cat/books/author/mawlana-shorif-hasan-shahin/page/2/ after retries: HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mawlana-shorif-hasan-shahin/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:01:39,340 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/maktabatu-markazit-talim-wat-taallum/page/2/ (1/3): ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-02 13:01:40,981 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/maktabatu-markazit-talim-wat-taallum/page/2/ (2/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/maktabatu-markazit-talim-wat-taallum/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:01:43,478 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/maktabatu-markazit-talim-wat-taallum/page/2/ (3/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/maktabatu-markazit-talim-wat-taallum/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:01:43,479 [ERROR] Skipping https://www.wafilife.com/cat/books/author/maktabatu-markazit-talim-wat-taallum/page/2/ after retries: HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/maktabatu-markazit-talim-wat-taallum/page/2/ (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:01:44,249 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাকতাবাতুত্-তাকওয়া (1/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%95%E0%A6%A4%E0%A6%BE%E0%A6%AC%E0%A6%BE%E0%A6%A4%E0%A7%81%E0%A6%A4%E0%A7%8D-%E0%A6%A4%E0%A6%BE%E0%A6%95%E0%A6%93%E0%A7%9F%E0%A6%BE (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:07:28,057 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/মাকতাবাতুত্-তাকওয়া (2/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/%E0%A6%AE%E0%A6%BE%E0%A6%95%E0%A6%A4%E0%A6%BE%E0%A6%AC%E0%A6%BE%E0%A6%A4%E0%A7%81%E0%A6%A4%E0%A7%8D-%E0%A6%A4%E0%A6%BE%E0%A6%95%E0%A6%93%E0%A7%9F%E0%A6%BE (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:30:43,746 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/mufti-abdush-shakur-kasemi (1/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mufti-abdush-shakur-kasemi (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:30:45,337 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/mufti-abdush-shakur-kasemi (2/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mufti-abdush-shakur-kasemi (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:30:46,854 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/mufti-abdush-shakur-kasemi (3/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mufti-abdush-shakur-kasemi (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:30:46,854 [ERROR] Skipping https://www.wafilife.com/cat/books/author/mufti-abdush-shakur-kasemi after retries: HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mufti-abdush-shakur-kasemi (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-02 13:55:09,220 [WARNING] Request failed for https://www.wafilife.com/cat/books/author/mufti-abdus-samad (1/3): HTTPSConnectionPool(host='www.wafilife.com', port=443): Max retries exceeded with url: /cat/books/author/mufti-abdus-samad (Caused by NameResolutionError("HTTPSConnection(host='www.wafilife.com', port=443): Failed to resolve 'www.wafilife.com' ([Errno 11001] getaddrinfo failed)"))
