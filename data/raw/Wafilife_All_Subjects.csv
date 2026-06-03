@@ -1,49 +1,43 @@
 ﻿subject_id,Subject_Name,Profile_Link
-2,অনুবাদ,https://www.wafilife.com/cat/books/subject/onubad
-3,অলিম্পিয়াড,https://www.wafilife.com/cat/books/subject/olympiad
-4,আইন ও বিচার,https://www.wafilife.com/cat/books/subject/law-and-justice
-5,আক্রান্ত মুসলিম ভূখণ্ড,https://www.wafilife.com/cat/books/subject/akranto-muslim-vukhondo
-6,"আত্ম-উন্নয়ন, মোটিভেশনাল ও মেডিটেশন",https://www.wafilife.com/cat/books/subject/self-help-motivational-and-meditation
-7,আরবি বিদেশী বই,https://www.wafilife.com/cat/books/subject/arabic-imported-books
-8,আরবী ভাষা শিক্ষা,https://www.wafilife.com/cat/books/subject/আরবী-ভাষা-শিক্ষা
-9,ইতিহাস ও ঐতিহ্য,https://www.wafilife.com/cat/books/subject/history-and-traditions
-10,ইসলামি বই,https://www.wafilife.com/cat/books/subject/islamic-books
-11,উপন্যাস,https://www.wafilife.com/cat/books/subject/shahitto-o-uponnash
-12,উসমানী মুসহাফ,https://www.wafilife.com/cat/books/subject/uthmani-mushaf
-13,একাডেমিক,https://www.wafilife.com/cat/books/subject/academic
-14,"কমিকস, নকশা ও ছবির গল্প",https://www.wafilife.com/cat/books/subject/comics-noksha-o-chobir-golpo
-15,"কম্পিউটার, ইন্টারনেট, ফ্রিল্যান্সিং ও আউটসোর্সিং",https://www.wafilife.com/cat/books/subject/কম্পিউটার-ও-তথ্য-প্রযুক্
-16,কৃষি ও কৃষক,https://www.wafilife.com/cat/books/subject/krishi-o-krishok
-17,খেলাধুলা,https://www.wafilife.com/cat/books/subject/sports
-18,গণমাধ্যম ও সাংবাদিকতা,https://www.wafilife.com/cat/books/subject/গণমাধ্যম-ও-সাংবাদিকতা-বি
-19,"গণিত, বিজ্ঞান ও প্রযুক্তি",https://www.wafilife.com/cat/books/subject/biggan-bishoyok
-20,গল্প,https://www.wafilife.com/cat/books/subject/গল্প
-21,"ছড়া, কবিতা ও আবৃত্তি",https://www.wafilife.com/cat/books/subject/chora-kobita-o-abritti
-22,"জীবনী, স্মৃতিচারণ ও সাক্ষাৎকার",https://www.wafilife.com/cat/books/subject/biographies-memories-interviews
-23,"ড্রয়িং, পেইন্টিং, ডিজাইন ও ফটোগ্রাফি",https://www.wafilife.com/cat/books/subject/drawing-painting-design-and-photography
-24,দর্শন বিষয়ক বই,https://www.wafilife.com/cat/books/subject/দর্শন-বিষয়ক-বই
-25,নাটক,https://www.wafilife.com/cat/books/subject/natok
-26,নাটকের বই,https://www.wafilife.com/cat/books/subject/natoker-boi
-27,পরিবার ও প্যারেন্টিং,https://www.wafilife.com/cat/books/subject/family-and-parenting
-28,পরিবেশ ও প্রকৃতি,https://www.wafilife.com/cat/books/subject/পরিবেশ-ও-প্রকৃতি
-29,পশ্চিমবঙ্গের বই,https://www.wafilife.com/cat/books/subject/west-bengal-books
-30,"প্রফেশনাল, জার্নাল ও রেফারেন্স",https://www.wafilife.com/cat/books/subject/জার্নাল-ও-রেফারেন্স
-31,প্রবন্ধ,https://www.wafilife.com/cat/books/subject/প্রবন্ধ
-32,প্রাণী ও জীবজগৎ,https://www.wafilife.com/cat/books/subject/প্রাণী-ও-জীবজগৎ
-33,ফ্যাশন ও রূপচর্চা,https://www.wafilife.com/cat/books/subject/fashion-and-beauty
-34,বিদেশি ভাষার বই,https://www.wafilife.com/cat/books/subject/foreign-language-books
-35,বিবিধ,https://www.wafilife.com/cat/books/subject/miscellaneous-books
-36,ব্যঙ্গ ও রম্যরচনা,https://www.wafilife.com/cat/books/subject/humor-entertainment
-37,"ব্যবসা, বিনিয়োগ ও অর্থনীতি",https://www.wafilife.com/cat/books/subject/business-investment-economics
-38,"ভর্তি, নিয়োগ ও প্রস্তুতি পরীক্ষা",https://www.wafilife.com/cat/books/subject/admission-and-job-preparation
-39,ভাষা ও অভিধান,https://www.wafilife.com/cat/books/subject/language-and-dictionary
-40,ভ্রমণ,https://www.wafilife.com/cat/books/subject/ভ্রমণ
-41,ম্যাগাজিন,https://www.wafilife.com/cat/books/subject/magazine
-42,রচনাসমগ্র/সংকলন,https://www.wafilife.com/cat/books/subject/রচনা-সংকলন-ও-সমগ্র
-43,"রহস্য, গোয়েন্দা, ভৌতিক, থ্রিলার ও অ্যাডভেঞ্চার",https://www.wafilife.com/cat/books/subject/mystery-detective-horror-thriller-and-adventure
-44,"রান্নাবান্না, খাদ্য ও পুষ্টি",https://www.wafilife.com/cat/books/subject/খাদ্য-ও-পুষ্টি
-45,শিশু,https://www.wafilife.com/cat/books/subject/শিশু-কিশোরদের-বই
-46,"সংগীত, চলচ্চিত্র ও বিনোদন",https://www.wafilife.com/cat/books/subject/music-film-and-entertainment
-47,"সমাজ, সভ্যতা ও সংস্কৃতি",https://www.wafilife.com/cat/books/subject/society-civilization-and-culture
-48,সায়েন্স ফিকশন,https://www.wafilife.com/cat/books/subject/সায়েন্স-ফিকশন
-49,"স্বাস্থ্য, পরিচর্যা ও রোগ নিরাময়",https://www.wafilife.com/cat/books/subject/চিকিৎসা
+2,আইন ও বিচার,https://www.wafilife.com/cat/books/subject/law-and-justice
+3,"আত্ম-উন্নয়ন, মোটিভেশনাল ও মেডিটেশন",https://www.wafilife.com/cat/books/subject/self-help-motivational-and-meditation
+4,আরবী ভাষা শিক্ষা,https://www.wafilife.com/cat/books/subject/আরবী-ভাষা-শিক্ষা
+5,ইতিহাস ও ঐতিহ্য,https://www.wafilife.com/cat/books/subject/history-and-traditions
+6,ইসলামি বই,https://www.wafilife.com/cat/books/subject/islamic-books
+7,উপন্যাস,https://www.wafilife.com/cat/books/subject/shahitto-o-uponnash
+8,একাডেমিক,https://www.wafilife.com/cat/books/subject/academic
+9,"কমিকস, নকশা ও ছবির গল্প",https://www.wafilife.com/cat/books/subject/comics-noksha-o-chobir-golpo
+10,"কম্পিউটার, ইন্টারনেট, ফ্রিল্যান্সিং ও আউটসোর্সিং",https://www.wafilife.com/cat/books/subject/কম্পিউটার-ও-তথ্য-প্রযুক্
+11,কৃষি ও কৃষক,https://www.wafilife.com/cat/books/subject/krishi-o-krishok
+12,খেলাধুলা,https://www.wafilife.com/cat/books/subject/sports
+13,গণমাধ্যম ও সাংবাদিকতা,https://www.wafilife.com/cat/books/subject/গণমাধ্যম-ও-সাংবাদিকতা-বি
+14,"গণিত, বিজ্ঞান ও প্রযুক্তি",https://www.wafilife.com/cat/books/subject/biggan-bishoyok
+15,গল্প,https://www.wafilife.com/cat/books/subject/গল্প
+16,"ছড়া, কবিতা ও আবৃত্তি",https://www.wafilife.com/cat/books/subject/chora-kobita-o-abritti
+17,"জীবনী, স্মৃতিচারণ ও সাক্ষাৎকার",https://www.wafilife.com/cat/books/subject/biographies-memories-interviews
+18,"ড্রয়িং, পেইন্টিং, ডিজাইন ও ফটোগ্রাফি",https://www.wafilife.com/cat/books/subject/drawing-painting-design-and-photography
+19,দর্শন বিষয়ক বই,https://www.wafilife.com/cat/books/subject/দর্শন-বিষয়ক-বই
+20,নাটক,https://www.wafilife.com/cat/books/subject/natok
+21,নাটকের বই,https://www.wafilife.com/cat/books/subject/natoker-boi
+22,নারী ও শিশু,https://www.wafilife.com/cat/books/subject/নারী-ও-শিশু
+23,পরিবার ও প্যারেন্টিং,https://www.wafilife.com/cat/books/subject/family-and-parenting
+24,পরিবেশ ও প্রকৃতি,https://www.wafilife.com/cat/books/subject/পরিবেশ-ও-প্রকৃতি
+25,"প্রফেশনাল, জার্নাল ও রেফারেন্স",https://www.wafilife.com/cat/books/subject/জার্নাল-ও-রেফারেন্স
+26,প্রবন্ধ,https://www.wafilife.com/cat/books/subject/প্রবন্ধ
+27,প্রাণী ও জীবজগৎ,https://www.wafilife.com/cat/books/subject/প্রাণী-ও-জীবজগৎ
+28,ফ্যাশন ও রূপচর্চা,https://www.wafilife.com/cat/books/subject/fashion-and-beauty
+29,বিদেশি ভাষার বই,https://www.wafilife.com/cat/books/subject/foreign-language-books
+30,বিশেষ সংগ্রহ,https://www.wafilife.com/cat/books/subject/special-collection
+31,ব্যঙ্গ ও রম্যরচনা,https://www.wafilife.com/cat/books/subject/humor-entertainment
+32,"ব্যবসা, বিনিয়োগ ও অর্থনীতি",https://www.wafilife.com/cat/books/subject/business-investment-economics
+33,"ভর্তি, নিয়োগ ও প্রস্তুতি পরীক্ষা",https://www.wafilife.com/cat/books/subject/admission-and-job-preparation
+34,ভাষণ,https://www.wafilife.com/cat/books/subject/vashon
+35,ভ্রমণ ও প্রবাস,https://www.wafilife.com/cat/books/subject/bhromon-o-probash
+36,"রহস্য, গোয়েন্দা, ভৌতিক, থ্রিলার ও অ্যাডভেঞ্চার",https://www.wafilife.com/cat/books/subject/mystery-detective-horror-thriller-and-adventure
+37,রাজনীতি বিষয়ক বই,https://www.wafilife.com/cat/books/subject/political-books
+38,"রান্নাবান্না, খাদ্য ও পুষ্টি",https://www.wafilife.com/cat/books/subject/খাদ্য-ও-পুষ্টি
+39,শিশু-কিশোর বই,https://www.wafilife.com/cat/books/subject/শিশু-কিশোরদের-বই
+40,"সংগীত, চলচ্চিত্র ও বিনোদন",https://www.wafilife.com/cat/books/subject/music-film-and-entertainment
+41,"সমাজ, সভ্যতা ও সংস্কৃতি",https://www.wafilife.com/cat/books/subject/society-civilization-and-culture
+42,সায়েন্স ফিকশন,https://www.wafilife.com/cat/books/subject/সায়েন্স-ফিকশন
+43,"স্বাস্থ্য, পরিচর্যা ও রোগ নিরাময়",https://www.wafilife.com/cat/books/subject/চিকিৎসা

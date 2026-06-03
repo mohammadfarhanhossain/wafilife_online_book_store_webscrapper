@@ -263,10 +263,48 @@ def write_progress(path, value):
     # value expected as dict like {"entity": name, "next_page": n_or_null}
     tmp = path.with_suffix(path.suffix + ".tmp")
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("", encoding="utf-8")
+    # write to a temp file then atomically replace the target.
     with open(tmp, "w", encoding="utf-8") as fh:
         json.dump(value, fh, ensure_ascii=False)
-    os.replace(str(tmp), str(path))
+
+    # Attempt an atomic replace; use a shared helper for robust behavior.
+    atomic_replace(tmp, path)
+
+
+def atomic_replace(src_path, dest_path, retries=3, delay=0.2):
+    """Replace dest_path with src_path atomically, retrying on PermissionError.
+
+    src_path and dest_path may be Path objects or strings.
+    """
+    src = Path(str(src_path))
+    dest = Path(str(dest_path))
+    last_exc = None
+    for attempt in range(retries):
+        try:
+            os.replace(str(src), str(dest))
+            return
+        except PermissionError as exc:
+            last_exc = exc
+            # try removing the destination then replace
+            try:
+                if dest.exists():
+                    os.remove(str(dest))
+            except Exception:
+                time.sleep(delay)
+                continue
+            try:
+                os.replace(str(src), str(dest))
+                return
+            except Exception as exc2:
+                last_exc = exc2
+                time.sleep(delay)
+                continue
+        except Exception as exc:
+            last_exc = exc
+            time.sleep(delay)
+            continue
+
+    raise last_exc
 
 
 def load_existing_processed(path):
