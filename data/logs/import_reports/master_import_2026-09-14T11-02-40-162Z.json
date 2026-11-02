@@ -1,0 +1,15 @@
+{
+  "sourceFile": "C:\\Automation_project\\wafilife scrapper\\master.csv",
+  "rowsRead": 59886,
+  "inserted": 59886,
+  "updated": 0,
+  "unchanged": 0,
+  "rejected": 0,
+  "ambiguousReview": 0,
+  "priceAnomalies": 3229,
+  "duplicateConflictCases": 0,
+  "duplicateConflictRows": 0,
+  "invalidRows": [],
+  "batchId": 2,
+  "reportPath": "C:\\Automation_project\\wafilife scrapper\\data\\logs\\import_reports\\master_import_2026-09-14T11-02-40-162Z.json"
+}

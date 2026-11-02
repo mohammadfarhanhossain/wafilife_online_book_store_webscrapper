@@ -1,0 +1,1 @@
+export function Footer() { return <footer><div className="content"><span className="brand-mark">প</span><span>পাতার ভেতর</span><span className="footer-note">পাঠকের জন্য তৈরি, ডেটা দিয়ে আরও ব্যক্তিগত।</span></div></footer>; }

@@ -24,7 +24,7 @@ Replace-on-success for daily runs
 Upgrade consent
 
 - Please confirm before I make further code changes or upgrades to the scraping logic; I will not deploy changes automatically.
- 
+
 How to run (short)
 
 - Full fresh scrape (rebuild entity lists, start from scratch):
@@ -68,3 +68,58 @@ Troubleshooting quick tips
 Questions or next steps
 
 - Want me to run a fresh full scrape now, or re-run the previously failed run? Reply with `run now` or `resume`.
+
+AI Bookstore foundation
+-----------------------
+
+The repository now includes a small TypeScript monorepo for the bookstore UI and API:
+
+- `apps/web`: Next.js storefront with Bengali search and recommendation UI.
+- `apps/api`: Node.js TypeScript API. It reads `master.csv` by default and exposes `/health`, `/api/books?q=...`, and `/api/recommendations?bookId=...`.
+- `services/ai`: Python FastAPI boundary for Ollama embeddings and future Chroma-backed ranking.
+- `database/migrations/001_initial_catalog.sql`: initial MySQL catalog and interaction tables.
+
+Setup
+-----
+
+Node.js 20+ and npm are required. From the project root:
+
+```powershell
+npm install
+Copy-Item apps/api/.env.example apps/api/.env
+Copy-Item apps/web/.env.example apps/web/.env.local
+npm run dev
+```
+
+The web app runs on `http://localhost:3000` and the API on `http://localhost:4000`. The current catalog source is the generated `master.csv`; the MySQL migration is intentionally separate so importing the existing CSV can be introduced as an explicit job without silently changing the scraper schema.
+
+Database and AI services
+------------------------
+
+Set real credentials in environment variables only. Do not commit `.env` files. Once Docker is available, `docker compose up -d mysql chroma` starts the local MySQL and Chroma services. The migration creates new tables only; it does not alter the scraper's existing tables or CSV outputs.
+
+The current recommendation implementation is deterministic metadata matching. The next AI increment should embed normalized book text through `services/ai`, persist vectors in Chroma, and blend semantic similarity with the interaction signals in `user_book_interactions`.
+
+V1 MySQL catalog import
+-----------------------
+
+The approved V1 database is separate from the legacy destructive `upload_sql()` path. Do not run that function against the V1 database. The new importer uses `master.csv` as a read-only input, generates UUIDv7 canonical book IDs, and preserves each existing numeric CSV ID in `legacy_book_ids`.
+
+From the repository root, after setting real values in `apps/api/.env`:
+
+```powershell
+npm install
+npm run db:migrate
+npm run import:master
+npm test
+```
+
+The importer creates a JSON report under `data/logs/import_reports/`. It reports inserted, updated, unchanged, rejected, review/ambiguous, price anomaly, and duplicate/conflict counts. Re-running the same CSV file is idempotent and does not create another import batch or duplicate catalog rows.
+
+To import a different CSV without changing the repository datasets:
+
+```powershell
+npm run import:master -- "C:\path\to\input.csv"
+```
+
+The importer never derives canonical IDs from row order, never automatically merges by title alone, and never silently changes source prices.
