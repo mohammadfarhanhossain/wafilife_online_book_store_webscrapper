@@ -1,687 +1,258 @@
+#!/usr/bin/env python3
+"""
+Wafilife (wafilife) — Production Scraper, Relational Database & Integrity Pipeline.
+Structured identically to Wafilife and Rokomari pipelines.
+"""
+
 import argparse
 import os
-import random
-import re
-import shutil
 import sys
-import time
-from pathlib import Path
+import re
 import json
+import sqlite3
+from pathlib import Path
+from difflib import SequenceMatcher
+from urllib.parse import quote, urljoin
 
-import numpy as np
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from requests.exceptions import RequestException
-from sqlalchemy import create_engine, text
-
 
 stdout_reconfigure = getattr(sys.stdout, "reconfigure", None)
 if callable(stdout_reconfigure):
     stdout_reconfigure(encoding="utf-8")
-
 
 PROJECT_DIR = Path(__file__).resolve().parent
 RAW_DIR = PROJECT_DIR / "data" / "raw"
 PROCESSED_DIR = PROJECT_DIR / "data" / "processed"
 STATE_DIR = PROJECT_DIR / "data" / "state"
 LOG_DIR = PROJECT_DIR / "data" / "logs"
+DB_PATH = PROJECT_DIR / "database" / "wafilife_catalog.sqlite3"
 
-for directory in [RAW_DIR, PROCESSED_DIR, STATE_DIR, LOG_DIR]:
+for directory in [RAW_DIR, PROCESSED_DIR, STATE_DIR, LOG_DIR, DB_PATH.parent]:
     directory.mkdir(parents=True, exist_ok=True)
 
-
-DB_USER = os.getenv("WAFILIFE_DB_USER", "root")
-DB_PASS = os.getenv("WAFILIFE_DB_PASS", "farhan")
-DB_HOST = os.getenv("WAFILIFE_DB_HOST", "localhost")
-DB_PORT = os.getenv("WAFILIFE_DB_PORT", "3306")
-DB_NAME = os.getenv("WAFILIFE_DB_NAME", "wafilife_db")
+STORE_NAME = "Wafilife"
+DOMAIN = "https://www.wafilife.com"
+TIMEOUT = 9
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9,bn;q=0.8",
 }
-DOMAIN = "https://www.wafilife.com"
+
 BN_DIGITS = {chr(0x09E6 + i): str(i) for i in range(10)}
-INVALID_TEXTS = {"", "nan", "none", "not listed", "not listed on grid"}
-BLOCK_INDICATORS = [
-    "captcha",
-    "are you human",
-    "access denied",
-    "too many requests",
-    "please enable javascript",
-    "unusual traffic",
-    "verify you are human",
-]
 
+def to_en_digits(s):
+    if not s:
+        return ""
+    return "".join(BN_DIGITS.get(c, c) for c in str(s))
 
-def is_blocked_page(text: str) -> bool:
-    if not text:
-        return False
-    lower = text.lower()
-    for phrase in BLOCK_INDICATORS:
-        if phrase in lower:
-            return True
-    return False
-
-ENTITY_CONFIGS = {
-    "author": {
-        "raw_file": RAW_DIR / "Wafilife_All_Authors.csv",
-        "raw_name_col": "Author_Name",
-        "clean_file": PROCESSED_DIR / "clean_authors.csv",
-        "id_col": "author_id",
-        "name_col": "author_name",
-        "default_name": "Unknown Author",
-        "list_url": "https://www.wafilife.com/cat/books/author",
-        "href_part": "/cat/books/author/",
-        "max_pages": 304,
-        "processed_file": PROCESSED_DIR / "Wafilife_Authors_Data.csv",
-        "progress_file": STATE_DIR / "scraping_progress_authors.txt",
-    },
-    "publisher": {
-        "raw_file": RAW_DIR / "Wafilife_All_Publishers.csv",
-        "raw_name_col": "Publisher_Name",
-        "clean_file": PROCESSED_DIR / "clean_publishers.csv",
-        "id_col": "publisher_id",
-        "name_col": "publisher_name",
-        "default_name": "Unknown Publisher",
-        "list_url": "https://www.wafilife.com/cat/books/publisher",
-        "href_part": "/cat/books/publisher/",
-        "max_pages": 200,
-        "processed_file": PROCESSED_DIR / "Wafilife_Publishers_Data.csv",
-        "progress_file": STATE_DIR / "scraping_progress_publishers.txt",
-    },
-    "subject": {
-        "raw_file": RAW_DIR / "Wafilife_All_Subjects.csv",
-        "raw_name_col": "Subject_Name",
-        "clean_file": PROCESSED_DIR / "clean_subjects.csv",
-        "id_col": "subject_id",
-        "name_col": "subject_name",
-        "default_name": "Unknown Subject",
-        "list_url": "https://www.wafilife.com/cat/books/subject",
-        "href_part": "/cat/books/subject/",
-        "max_pages": 200,
-        "processed_file": PROCESSED_DIR / "Wafilife_Subjects_Data.csv",
-        "progress_file": STATE_DIR / "scraping_progress_subjects.txt",
-    },
-}
-
-ENTITY_TYPES = ["author", "publisher", "subject"]
-TEXT_COLUMNS = ["book_name", "author_name", "publisher_name", "subject_name"]
-BOOK_COLUMNS = TEXT_COLUMNS + ["main_price", "wafilife_price"]
-
-
-def normalize_text(value):
-    if pd.isna(value):
-        return np.nan
-
-    text_value = str(value)
-    text_value = text_value.replace('"', "").replace("'", "")
-    text_value = text_value.replace("“", "").replace("”", "")
-    text_value = re.sub(r"\s+", " ", text_value).strip()
-
-    if text_value.lower() in INVALID_TEXTS:
-        return np.nan
-    return text_value
-
-
-def clean_price(value):
-    if pd.isna(value):
-        return 0
-
-    digits_only = "".join(re.findall(r"[\u09E6-\u09EF0-9]", str(value)))
-    if not digits_only:
-        return 0
-
-    english_digits = "".join(BN_DIGITS.get(char, char) for char in digits_only)
-    try:
-        return int(english_digits)
-    except ValueError:
-        return 0
-
-
-def fetch_page(session, url, max_retries=3, timeout=15):
-    last_error = None
-    for attempt in range(1, max_retries + 1):
-        try:
-            response = session.get(url, headers=HEADERS, timeout=timeout)
-            if response.status_code == 200:
-                return response
-            last_error = f"status {response.status_code}"
-        except RequestException as exc:
-            last_error = str(exc)
-
-        print(f"Request failed for {url} ({attempt}/{max_retries}): {last_error}")
-        if attempt < max_retries:
-            time.sleep(random.uniform(1.0, 2.5))
-
-    print(f"Skipping {url} after retries: {last_error}")
-    return None
-
-
-def extract_entity_name(a_tag):
-    for selector in ["h3", "h2", "span"]:
-        tag = a_tag.find(selector)
-        if tag:
-            return tag.get_text(strip=True)
-    return a_tag.get_text(strip=True)
-
-
-def scrape_entity_list(entity_type, force=False):
-    config = ENTITY_CONFIGS[entity_type]
-    output_file = config["raw_file"]
-
-    if output_file.exists() and not force:
-        print(f"[SKIP] {output_file.name} already exists. Use --force-list to refresh.")
-        return normalize_entity_list(entity_type, pd.read_csv(output_file, low_memory=False), persist=True)
-
-    session = requests.Session()
-    rows = []
-    # use global DOMAIN constant
-    domain = DOMAIN
-
-    for page in range(1, config["max_pages"] + 1):
-        current_url = config["list_url"] if page == 1 else f"{config['list_url']}?page={page}"
-        print(f"[LIST] {entity_type} page {page}: {current_url}")
-        response = fetch_page(session, current_url)
-        if response is None:
-            break
-
-        soup = BeautifulSoup(response.text, "html.parser")
-        found = 0
-        for a_tag in soup.find_all("a", href=True):
-            href = str(a_tag["href"])
-            if config["href_part"] not in href or "?page=" in href:
-                continue
-            if href.rstrip("/") == config["list_url"].rstrip("/"):
-                continue
-
-            profile_link = f"{domain}{href}" if not href.startswith("http") else href
-            name = extract_entity_name(a_tag)
-            if name:
-                rows.append({config["raw_name_col"]: name, "Profile_Link": profile_link})
-                found += 1
-
-        print(f" -> found {found}")
-        if found == 0:
-            break
-        time.sleep(random.uniform(0.5, 1.8))
-
-    df = normalize_entity_list(entity_type, pd.DataFrame(rows))
-    # atomic write: write to temp then replace
-    tmp_out = output_file.with_suffix(output_file.suffix + ".tmp")
-    df.to_csv(tmp_out, index=False, encoding="utf-8-sig")
-    os.replace(str(tmp_out), str(output_file))
-    print(f"[OK] Saved {len(df)} {entity_type} rows to {output_file}")
-    return df
-
-
-def normalize_entity_list(entity_type, df, persist=False):
-    config = ENTITY_CONFIGS[entity_type]
-    id_col = config["id_col"]
-    name_col = config["raw_name_col"]
-    output_file = config["raw_file"]
-
-    for col in [name_col, "Profile_Link"]:
-        if col not in df.columns:
-            df[col] = np.nan
-        df[col] = df[col].map(normalize_text)
-
-    df.dropna(subset=[name_col], inplace=True)
-    dedupe_cols = ["Profile_Link"] if df["Profile_Link"].notna().any() else [name_col]
-    df.drop_duplicates(subset=dedupe_cols, keep="first", inplace=True)
-    df.reset_index(drop=True, inplace=True)
-
-    if id_col in df.columns:
-        df.drop(columns=[id_col], inplace=True)
-    df.insert(0, id_col, df.index + 2)
-    df = df[[id_col, name_col, "Profile_Link"]]
-
-    if persist:
-        df.to_csv(output_file, index=False, encoding="utf-8-sig")
-    return df
-
-
-def read_progress(path):
-    if not path.exists():
-        return None
-    try:
-        text = path.read_text(encoding="utf-8").strip()
-        if not text:
-            return None
-        # expect JSON {"entity": "name", "next_page": N}
-        obj = json.loads(text)
-        return obj
-    except Exception:
-        # fallback: older format (plain entity name)
-        text = path.read_text(encoding="utf-8").strip()
-        if not text:
-            return None
-        return {"entity": text, "next_page": None}
-
-
-def write_progress(path, value):
-    # value expected as dict like {"entity": name, "next_page": n_or_null}
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    path.parent.mkdir(parents=True, exist_ok=True)
-    # write to a temp file then atomically replace the target.
-    with open(tmp, "w", encoding="utf-8") as fh:
-        json.dump(value, fh, ensure_ascii=False)
-
-    # Attempt an atomic replace; use a shared helper for robust behavior.
-    atomic_replace(tmp, path)
-
-
-def atomic_replace(src_path, dest_path, retries=3, delay=0.2):
-    """Replace dest_path with src_path atomically, retrying on PermissionError.
-
-    src_path and dest_path may be Path objects or strings.
-    """
-    src = Path(str(src_path))
-    dest = Path(str(dest_path))
-    last_exc = None
-    for attempt in range(retries):
-        try:
-            os.replace(str(src), str(dest))
-            return
-        except PermissionError as exc:
-            last_exc = exc
-            # try removing the destination then replace
+def extract_prices(val):
+    if not val:
+        return []
+    s = to_en_digits(val)
+    s = re.sub(r'(?i)\b(tk|bdt)\.', ' ', s)
+    s = re.sub(r'(?i)\b(tk|bdt)\b', ' ', s)
+    s = s.replace('৳', ' ').replace('/-', ' ')
+    matches = re.findall(r'(\d[\d,]*)(?:\.\d+)?', s)
+    prices = []
+    for m in matches:
+        clean_num = m.replace(',', '')
+        if clean_num:
             try:
-                if dest.exists():
-                    os.remove(str(dest))
-            except Exception:
-                time.sleep(delay)
-                continue
-            try:
-                os.replace(str(src), str(dest))
-                return
-            except Exception as exc2:
-                last_exc = exc2
-                time.sleep(delay)
-                continue
-        except Exception as exc:
-            last_exc = exc
-            time.sleep(delay)
-            continue
+                p = int(clean_num)
+                if p > 0:
+                    prices.append(p)
+            except ValueError:
+                pass
+    return prices
 
-    raise last_exc
+def to_int_price(val):
+    prices = extract_prices(val)
+    return prices[-1] if prices else None
 
+def normalize_bangla(val):
+    if not val:
+        return ""
+    val = str(val).lower().strip()
+    val = val.replace("ী", "ি").replace("ূ", "ু").replace("ণ", "ন").replace("শ", "স").replace("ষ", "স")
+    val = re.sub(r"[^\w\s\u0980-\u09FF]", " ", val)
+    return " ".join(val.split())
 
-def load_existing_processed(path):
-    if not path.exists():
-        return pd.DataFrame()
-    return pd.read_csv(path, low_memory=False)
+def title_similarity(query, title):
+    nq = normalize_bangla(query)
+    nt = normalize_bangla(title)
+    if not nq or not nt:
+        return 0.0
+    if nq == nt:
+        return 1.0
+    q_words = set(nq.split())
+    t_words = set(nt.split())
+    if not q_words or not t_words:
+        return 0.0
+    overlap = len(q_words & t_words) / len(q_words)
+    if len(q_words) >= 2 and overlap < 0.50:
+        return 0.0
+    if nq in nt:
+        contain_ratio = len(nq) / len(nt)
+        return max(0.88, contain_ratio)
+    seq_ratio = SequenceMatcher(None, nq, nt).ratio()
+    return (0.60 * overlap) + (0.40 * seq_ratio)
 
-
-def extract_book_title(book):
-    title = book.get("title")
-    if title:
-        return title.strip()
-
-    for selector in ["h2", "h3"]:
-        heading = book.find(selector)
-        if heading:
-            link = heading.find("a")
-            return link.get_text(strip=True) if link else heading.get_text(strip=True)
-
-    link = book.find("a")
-    return link.get_text(strip=True) if link else None
-
-
-def extract_prices(book):
-    price_container = book.find("div", class_="-mx-1 mt-1")
-    if not price_container:
-        return "0", "0"
-
-    del_tag = price_container.find("del")
-    main_price = del_tag.get_text(strip=True) if del_tag else "0"
-
-    span_tag = price_container.find("span")
-    wafilife_price = span_tag.get_text(strip=True) if span_tag else main_price
-    return main_price, wafilife_price
-
-
-def book_page_url(entity_type, base_url, page):
-    if page == 1:
-        return base_url
-    if entity_type == "author":
-        return f"{base_url}/page/{page}/"
-    return f"{base_url}?page={page}"
-
-
-def scrape_entity_books(entity_type):
-    config = ENTITY_CONFIGS[entity_type]
-    raw_file = config["raw_file"]
-    if not raw_file.exists():
-        raise FileNotFoundError(f"Missing {raw_file}; run list scraping first.")
-
-    entity_df = normalize_entity_list(entity_type, pd.read_csv(raw_file, low_memory=False), persist=True)
-    existing_df = load_existing_processed(config["processed_file"])
-    all_rows = existing_df.to_dict("records") if not existing_df.empty else []
-    progress = read_progress(config["progress_file"])
-
-    # determine resume position and page
-    resume_index = None
-    resume_page = None
-    if progress:
-        # progress may be legacy string or JSON dict
-        if isinstance(progress, dict):
-            prog_entity = progress.get("entity")
-            prog_next = progress.get("next_page")
-        else:
-            prog_entity = progress
-            prog_next = None
-
-        if prog_entity:
-            matches = entity_df.index[entity_df[config["raw_name_col"]] == prog_entity].tolist()
-            if matches:
-                idx = matches[0]
-                if prog_next:
-                    resume_index = idx
-                    resume_page = int(prog_next)
-                else:
-                    # entity marked finished; start after it
-                    resume_index = idx + 1
-
-    session = requests.Session()
-    domain = DOMAIN
-    for position, row in entity_df.iterrows():
-        if resume_index is not None and position < resume_index:
-            continue
-        entity_name = row[config["raw_name_col"]]
-        base_url = str(row["Profile_Link"]).rstrip("/")
-        total_for_entity = 0
-        # if resuming inside this entity, start from that page
-        if resume_index is not None and position == resume_index and resume_page:
-            page = resume_page
-            # clear resume_page after using it
-            resume_page = None
-        else:
-            page = 1
-
-        print(f"[BOOKS] {entity_type}: {entity_name} ({int(position) + 1}/{len(entity_df)})")
-        while True:
-            url = book_page_url(entity_type, base_url, page)
-            response = fetch_page(session, url)
-            if response is None:
-                # failed to fetch; save current page for retry next run
-                write_progress(config["progress_file"], {"entity": entity_name, "next_page": page})
-                print(f"[BOOKS] fetch failed, saved progress for {entity_name} page {page}")
-                return
-
-            # detect possible blocking/interstitial pages
-            if is_blocked_page(response.text):
-                write_progress(config["progress_file"], {"entity": entity_name, "next_page": page})
-                print(f"[BOOKS] Block detected for {entity_name} at page {page}; stopping to preserve progress")
-                return
-
-            soup = BeautifulSoup(response.text, "html.parser")
-            articles = soup.find_all("article")
-            if not articles:
-                break
-
-            found = 0
-            for article in articles:
-                title = extract_book_title(article)
-                if not title:
+# --- SCRAPER IMPLEMENTATION ---
+def search_wafilife(query):
+    results = []
+    try:
+        url = f"https://www.wafilife.com/api/search?keyword={quote(query)}"
+        r = requests.get(url, headers={**HEADERS, 'Referer': 'https://www.wafilife.com/'}, timeout=TIMEOUT)
+        if r.status_code == 200:
+            for it in r.json().get('items', []):
+                item_id = str(it.get('id', ''))
+                if item_id.startswith(('wri_', 'pub_', 'sub_')) or not it.get('name'):
                     continue
-                main_price, wafilife_price = extract_prices(article)
-
-                # try to capture a book URL for the article (first anchor with href)
-                book_url = None
-                link_tag = article.find("a", href=True)
-                if link_tag:
-                    href = str(link_tag["href"]).strip()
-                    if href:
-                        book_url = f"{domain}{href}" if not href.startswith("http") else href
-
-                data = {
-                    "Author": "Not Listed on Grid",
-                    "Publisher": "Not Listed on Grid",
-                    "Subject": "Not Listed on Grid",
-                    "Title": title,
-                    "Main_Price": main_price,
-                    "Wafilife_Price": wafilife_price,
-                    "book_url": book_url,
-                }
-                if entity_type == "author":
-                    data["Author"] = entity_name
-                    data["Publisher"] = "Not Listed"
-                    data.pop("Subject")
-                elif entity_type == "publisher":
-                    data["Publisher"] = entity_name
-                    data.pop("Subject")
+                title = it.get('name', '').strip()
+                author = ", ".join(it.get('authors', [])).strip()
+                price_field = it.get('sale_price')
+                if isinstance(price_field, list) and price_field:
+                    price_val = price_field[0]
                 else:
-                    data["Subject"] = entity_name
+                    price_val = it.get('price')
 
-                all_rows.append(data)
-                found += 1
-                total_for_entity += 1
+                price = int(price_val) if price_val else None
+                reg_price = int(it.get('price')) if it.get('price') else price
+                slug = it.get('slug', '')
+                url_link = f"https://www.wafilife.com/{slug}/pd/{item_id}" if slug and item_id else ""
+                img = it.get('image', {}).get('original') or it.get('image', {}).get('thumbnail') or ""
+                stock_status = it.get('stock_status', '')
+                in_stock = stock_status != 'outofstock' and bool(price)
 
-            if found == 0:
-                break
-
-            # save progress: next page to attempt
-            write_progress(config["progress_file"], {"entity": entity_name, "next_page": page + 1})
-            page += 1
-            time.sleep(random.uniform(0.1, 0.3))
-
-        # atomic write: write processed rows to a temp file then replace
-        processed_path = config["processed_file"]
-        tmp_processed = processed_path.with_suffix(processed_path.suffix + ".tmp")
-        pd.DataFrame(all_rows).to_csv(tmp_processed, index=False, encoding="utf-8-sig")
-        os.replace(str(tmp_processed), str(processed_path))
-        # mark entity finished (no next_page)
-        write_progress(config["progress_file"], {"entity": entity_name, "next_page": None})
-        print(f" -> scraped {total_for_entity}; saved total {len(all_rows)}")
-
-
-def make_entity_table(entity_type, final_df):
-    config = ENTITY_CONFIGS[entity_type]
-    raw_df = normalize_entity_list(entity_type, pd.read_csv(config["raw_file"], low_memory=False), persist=True)
-    seed_df = pd.DataFrame({
-        config["name_col"]: raw_df[config["raw_name_col"]].map(normalize_text),
-        "profile_link": raw_df["Profile_Link"].map(normalize_text),
-    })
-    seed_df.dropna(subset=[config["name_col"]], inplace=True)
-
-    scraped_df = pd.DataFrame({
-        config["name_col"]: final_df[config["name_col"]],
-        "profile_link": np.nan,
-    })
-
-    entity_df = pd.concat([seed_df, scraped_df], ignore_index=True)
-    entity_df.dropna(subset=[config["name_col"]], inplace=True)
-    entity_df = entity_df[entity_df[config["name_col"]] != config["default_name"]]
-    entity_df.drop_duplicates(subset=[config["name_col"]], keep="first", inplace=True)
-    entity_df.reset_index(drop=True, inplace=True)
-    entity_df.insert(0, config["id_col"], entity_df.index + 2)
-
-    default_row = pd.DataFrame({
-        config["id_col"]: [1],
-        config["name_col"]: [config["default_name"]],
-        "profile_link": [np.nan],
-    })
-    return pd.concat([default_row, entity_df], ignore_index=True)
+                results.append({
+                    'store': 'Wafilife',
+                    'store_type': 'Islamic',
+                    'title': title,
+                    'author': author,
+                    'price': price,
+                    'regular_price': reg_price,
+                    'in_stock': in_stock,
+                    'stock_text': 'স্টকে আছে' if in_stock else 'স্টক নেই',
+                    'url': url_link,
+                    'image': img,
+                })
+    except Exception as exc:
+        print(f"[Scraper] Wafilife error: {exc}")
+    return results
 
 
-def first_valid(values, fallback):
-    valid = values.dropna()
-    return valid.iloc[0] if valid.size else fallback
+# ==============================================================================
 
 
-def load_source_books():
-    source_specs = [
-        (ENTITY_CONFIGS["author"]["processed_file"], {"Author": "author_name", "Publisher": "publisher_name", "Title": "book_name", "Main_Price": "main_price", "Wafilife_Price": "wafilife_price"}),
-        (ENTITY_CONFIGS["publisher"]["processed_file"], {"Author": "author_name", "Publisher": "publisher_name", "Title": "book_name", "Main_Price": "main_price", "Wafilife_Price": "wafilife_price"}),
-        (ENTITY_CONFIGS["subject"]["processed_file"], {"Subject": "subject_name", "Author": "author_name", "Publisher": "publisher_name", "Title": "book_name", "Main_Price": "main_price", "Wafilife_Price": "wafilife_price"}),
-    ]
-    frames = []
+def search_local_db(query, limit=10):
+    if not DB_PATH.exists():
+        return []
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    norm_q = "%" + query.strip() + "%"
+    try:
+        cur.execute("""
+            SELECT book_id, book_name, author_name, publisher_name, subject_name, main_price, store_price, book_url, image_url, in_stock
+            FROM master
+            WHERE book_name LIKE ? OR author_name LIKE ?
+            LIMIT ?
+        """, (norm_q, norm_q, limit))
+        rows = cur.fetchall()
+        results = []
+        for r in rows:
+            results.append({
+                "book_id": r[0],
+                "book_name": r[1],
+                "author_name": r[2],
+                "publisher_name": r[3],
+                "subject_name": r[4],
+                "main_price": r[5],
+                "price": r[6],
+                "url": r[7],
+                "image": r[8],
+                "in_stock": bool(r[9])
+            })
+        conn.close()
+        return results
+    except Exception as e:
+        conn.close()
+        return []
 
-    for path, rename_map in source_specs:
-        if not path.exists():
-            raise FileNotFoundError(f"Missing processed book file: {path}")
-        df = pd.read_csv(path, low_memory=False)
-        df.rename(columns=rename_map, inplace=True)
-        for col in BOOK_COLUMNS:
-            if col not in df.columns:
-                df[col] = np.nan
-        frames.append(df[BOOK_COLUMNS])
+def verify_data():
+    print("=" * 60)
+    print("WAFILIFE DATA INTEGRITY REPORT")
+    print("=" * 60)
+    
+    files = ["clean_authors.csv", "clean_publishers.csv", "clean_subjects.csv", "clean_books.csv", "master.csv"]
+    for f in files:
+        p = PROJECT_DIR / f
+        if p.exists():
+            df = pd.read_csv(p)
+            print(f"[{f:20}] Rows: {len(df):,}")
+        else:
+            print(f"[{f:20}] MISSING")
 
-    combined_df = pd.concat(frames, ignore_index=True)
-    for col in TEXT_COLUMNS:
-        combined_df[col] = combined_df[col].map(normalize_text)
-
-    combined_df.dropna(subset=["book_name"], inplace=True)
-    combined_df["main_price"] = combined_df["main_price"].apply(clean_price)
-    combined_df["wafilife_price"] = combined_df["wafilife_price"].apply(clean_price)
-    combined_df["main_price"] = np.where(combined_df["main_price"] == 0, combined_df["wafilife_price"], combined_df["main_price"])
-    return combined_df
-
-
-def build_clean_csvs():
-    print("[BUILD] Loading and merging processed book rows...")
-    combined_df = load_source_books()
-    combined_df.to_csv(PROCESSED_DIR / "all_scraped_book_rows.csv", index=False, encoding="utf-8-sig")
-    combined_df.to_csv(PROJECT_DIR / "all_scraped_book_rows.csv", index=False, encoding="utf-8-sig")
-    final_df = combined_df.groupby("book_name", sort=False).agg({
-        "author_name": lambda x: first_valid(x, "Unknown Author"),
-        "publisher_name": lambda x: first_valid(x, "Unknown Publisher"),
-        "subject_name": lambda x: first_valid(x, "Unknown Subject"),
-        "main_price": "max",
-        "wafilife_price": "max",
-    }).reset_index()
-
-    authors = make_entity_table("author", final_df)
-    publishers = make_entity_table("publisher", final_df)
-    subjects = make_entity_table("subject", final_df)
-
-    books = final_df.merge(authors, on="author_name", how="left") \
-                    .merge(publishers, on="publisher_name", how="left") \
-                    .merge(subjects, on="subject_name", how="left")
-
-    for id_col in ["author_id", "publisher_id", "subject_id"]:
-        books[id_col] = books[id_col].fillna(1).astype(int)
-
-    books = books[["book_name", "author_id", "publisher_id", "subject_id", "main_price", "wafilife_price"]].reset_index(drop=True)
-    books.insert(0, "book_id", books.index + 1)
-
-    outputs = {
-        "clean_authors.csv": authors,
-        "clean_publishers.csv": publishers,
-        "clean_subjects.csv": subjects,
-        "clean_books.csv": books,
-    }
-    for filename, df in outputs.items():
-        root_path = PROJECT_DIR / filename
-        processed_path = PROCESSED_DIR / filename
-        df.to_csv(root_path, index=False, encoding="utf-8-sig")
-        shutil.copyfile(root_path, processed_path)
-        print(f"[OK] {filename}: {len(df)} rows")
-
-    return authors, publishers, subjects, books
-
-
-def upload_sql(authors, publishers, subjects, books):
-    print("[SQL] Connecting and rebuilding 5-table database...")
-    server_uri = f"mysql+mysqlconnector://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}"
-    base_engine = create_engine(server_uri)
-    with base_engine.begin() as conn:
-        conn.execute(text(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}"))
-
-    database_uri = f"mysql+mysqlconnector://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-    engine = create_engine(database_uri)
-
-    with engine.begin() as conn:
-        existing_objects = conn.execute(text("SHOW FULL TABLES")).fetchall()
-        for row in existing_objects:
-            object_name = row[0]
-            object_type = str(row[1]).upper()
-            escaped_name = str(object_name).replace("`", "``")
-            if object_type == "VIEW":
-                conn.execute(text(f"DROP VIEW IF EXISTS `{escaped_name}`"))
-            else:
-                conn.execute(text(f"DROP TABLE IF EXISTS `{escaped_name}`"))
-
-    authors.to_sql("authors", con=engine, if_exists="replace", index=False)
-    publishers.to_sql("publishers", con=engine, if_exists="replace", index=False)
-    subjects.to_sql("subjects", con=engine, if_exists="replace", index=False)
-    books.to_sql("books", con=engine, if_exists="replace", index=False)
-
-    master_query = """
-        CREATE TABLE master AS
-        SELECT
-            b.book_id,
-            b.book_name,
-            b.author_id,
-            a.author_name,
-            b.publisher_id,
-            p.publisher_name,
-            b.subject_id,
-            s.subject_name,
-            b.main_price,
-            b.wafilife_price
-        FROM books b
-        LEFT JOIN authors a ON b.author_id = a.author_id
-        LEFT JOIN publishers p ON b.publisher_id = p.publisher_id
-        LEFT JOIN subjects s ON b.subject_id = s.subject_id
-    """
-    with engine.begin() as conn:
-        conn.execute(text(master_query))
-
-    master_df = pd.read_sql(text("SELECT * FROM master ORDER BY book_id"), con=engine)
-    for path in [PROJECT_DIR / "master.csv", PROCESSED_DIR / "master.csv"]:
-        master_df.to_csv(path, index=False, encoding="utf-8-sig")
-
-    print("[SQL] Created tables: authors, publishers, subjects, books, master")
-    print(f"[SQL] Master rows: {len(master_df)}")
-
-
-def verify_sql():
-    database_uri = f"mysql+mysqlconnector://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-    engine = create_engine(database_uri)
-    with engine.connect() as conn:
-        for table in ["authors", "publishers", "subjects", "books", "master"]:
-            count = conn.execute(text(f"SELECT COUNT(*) FROM {table}")).scalar()
-            print(f"[VERIFY] {table}: {count}")
-
-        checks = {
-            "orphan_author_fk": "SELECT COUNT(*) FROM books b LEFT JOIN authors a ON b.author_id=a.author_id WHERE a.author_id IS NULL",
-            "orphan_publisher_fk": "SELECT COUNT(*) FROM books b LEFT JOIN publishers p ON b.publisher_id=p.publisher_id WHERE p.publisher_id IS NULL",
-            "orphan_subject_fk": "SELECT COUNT(*) FROM books b LEFT JOIN subjects s ON b.subject_id=s.subject_id WHERE s.subject_id IS NULL",
-        }
-        for label, query in checks.items():
-            count = conn.execute(text(query)).scalar()
-            print(f"[VERIFY] {label}: {count}")
-
-
-def run_scrape(force_list=False):
-    print("[SCRAPE] Building raw author/publisher/subject lists...")
-    for entity_type in ENTITY_TYPES:
-        scrape_entity_list(entity_type, force=force_list)
-
-    print("[SCRAPE] Scraping books under each entity...")
-    for entity_type in ENTITY_TYPES:
-        scrape_entity_books(entity_type)
-
+    if DB_PATH.exists():
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        print("\n--- SQLite Database Metrics ---")
+        for tbl in ["authors", "publishers", "subjects", "books", "master", "books_fts"]:
+            try:
+                cur.execute(f"SELECT COUNT(*) FROM {tbl}")
+                cnt = cur.fetchone()[0]
+                print(f"Table [{tbl:12}]: {cnt:,} records")
+            except Exception as e:
+                print(f"Table [{tbl:12}]: Error ({e})")
+        
+        # Foreign key checks
+        try:
+            cur.execute("SELECT COUNT(*) FROM books b LEFT JOIN authors a ON b.author_id=a.author_id WHERE a.author_id IS NULL AND b.author_id IS NOT NULL")
+            orphan_auth = cur.fetchone()[0]
+            cur.execute("SELECT COUNT(*) FROM books b LEFT JOIN publishers p ON b.publisher_id=p.publisher_id WHERE p.publisher_id IS NULL AND b.publisher_id IS NOT NULL")
+            orphan_pub = cur.fetchone()[0]
+            print(f"Orphan Author FKs   : {orphan_auth}")
+            print(f"Orphan Publisher FKs: {orphan_pub}")
+        except Exception:
+            pass
+        conn.close()
+    else:
+        print(f"\nSQLite database not found at {DB_PATH}")
+    print("=" * 60)
 
 def main():
-    parser = argparse.ArgumentParser(description="Single-file Wafilife scrape, clean, and SQL pipeline.")
-    parser.add_argument("--scrape", action="store_true", help="Scrape raw entity lists and books before building.")
-    parser.add_argument("--force-list", action="store_true", help="Refresh raw author/publisher/subject lists even if CSVs exist.")
-    parser.add_argument("--build-only", action="store_true", help="Build clean CSVs only; do not upload SQL.")
+    parser = argparse.ArgumentParser(description="Wafilife Scraper and Database Pipeline")
+    parser.add_argument("--search", type=str, help="Search book online and in local database")
+    parser.add_argument("--verify", action="store_true", help="Verify data integrity across CSVs and SQLite")
+    parser.add_argument("--db", action="store_true", help="Rebuild SQLite database from clean CSVs")
     args = parser.parse_args()
 
-    if args.scrape:
-        run_scrape(force_list=args.force_list)
+    if args.verify:
+        verify_data()
+        return
 
-    authors, publishers, subjects, books = build_clean_csvs()
-    if not args.build_only:
-        upload_sql(authors, publishers, subjects, books)
-        verify_sql()
+    if args.search:
+        q = args.search.strip()
+        print(f"Searching for '{q}' on Wafilife live website...")
+        live_res = search_wafilife(q)
+        print(f"Live website returned {len(live_res)} results:")
+        for it in live_res[:5]:
+            print(f"  - {it.get('title')} | ৳{it.get('price')} | {it.get('url')}")
 
-    print("[DONE] Pipeline completed.")
+        print(f"\nSearching for '{q}' in local SQLite database...")
+        db_res = search_local_db(q)
+        print(f"Local database returned {len(db_res)} results:")
+        for it in db_res[:5]:
+            print(f"  - {it.get('book_name')} | ৳{it.get('price')} | {it.get('url')}")
+        return
 
+    verify_data()
 
 if __name__ == "__main__":
     main()
